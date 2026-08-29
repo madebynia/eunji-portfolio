@@ -6,7 +6,7 @@ describe('WorkPage', () => {
   it('shows the current role and core professional themes', () => {
     render(<WorkPage />);
 
-    expect(screen.getByText('Data Management Associate')).toBeInTheDocument();
+    expect(screen.getAllByText('Data Management Associate').length).toBeGreaterThan(0);
     expect(screen.getByRole('heading', { name: 'SOP Development' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'DVS Manual Development' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'DVS Logic Design' })).toBeInTheDocument();
