@@ -3,12 +3,14 @@ import { NavLink } from 'react-router-dom';
 const navItems = [
   { label: 'HOME', to: '/' },
   { label: 'WORK', to: '/work' },
+  { label: 'PROJECTS', to: '/projects' },
   { label: 'STORY', to: '/story' },
 ];
 
 export function SiteHeader() {
   return (
     <header className="site-header">
+      <a className="skip-link" href="#main-content">본문으로 건너뛰기</a>
       <div className="site-header-inner">
         <NavLink className="brand-mark" to="/" aria-label="EUNJI home">
           EUNJI<span className="brand-dot">.</span>
