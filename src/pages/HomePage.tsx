@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { SectionLabel } from '../components/SectionLabel';
+import '../styles/home-v2.css';
 import {
   careerSteps,
   hero,
