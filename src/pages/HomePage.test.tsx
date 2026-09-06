@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { HomePage } from './HomePage';
 
 describe('HomePage', () => {
-  it('uses Korean-first hero copy with English structural labels', () => {
+  it('opens with a more personal problem-solving statement', () => {
     render(
       <MemoryRouter>
         <HomePage />
@@ -13,12 +13,22 @@ describe('HomePage', () => {
 
     expect(
       screen.getByRole('heading', {
-        name: '복잡한 일은 정리하고, 반복되는 일은 줄입니다.',
+        name: /귀찮은 일을 발견하면.*그냥 두지 않는 사람입니다\./,
       }),
     ).toBeInTheDocument();
-    expect(screen.getByText('ABOUT')).toBeInTheDocument();
-    expect(screen.getByText('MY PATH')).toBeInTheDocument();
-    expect(screen.getByText('WHAT I DO')).toBeInTheDocument();
-    expect(screen.getByText('SELECTED WORK')).toBeInTheDocument();
+  });
+
+  it('puts recent products before the career narrative', () => {
+    render(
+      <MemoryRouter>
+        <HomePage />
+      </MemoryRouter>,
+    );
+
+    expect(screen.getByText('RECENTLY MADE')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'AKA' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: '무카랭' })).toBeInTheDocument();
+    expect(screen.getByText('HOW I WORK')).toBeInTheDocument();
+    expect(screen.getByText('FROM CARE TO BUILD')).toBeInTheDocument();
   });
 });
