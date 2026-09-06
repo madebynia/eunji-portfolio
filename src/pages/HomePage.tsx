@@ -1,159 +1,144 @@
 import { Link } from 'react-router-dom';
-import { Pill } from '../components/Pill';
 import { SectionLabel } from '../components/SectionLabel';
-import { Timeline } from '../components/Timeline';
-import { WorkCard } from '../components/WorkCard';
 import {
-  about,
-  curiosities,
+  careerSteps,
   hero,
-  pathItems,
-  selectedWork,
-  whatIDoItems,
+  recentProducts,
+  smallNotes,
+  workingStyle,
 } from '../content/home';
 
 export function HomePage() {
   return (
-    <main>
-      <section className="hero section-shell" aria-labelledby="home-title">
-        <div className="hero-copy">
-          <p className="hero-name">{hero.eyebrow}</p>
+    <main className="home-v2">
+      <section className="home-v2-hero section-shell" aria-labelledby="home-title">
+        <div className="home-v2-hero-copy">
+          <p className="home-v2-eyebrow">{hero.eyebrow}</p>
           <h1 id="home-title">{hero.title}</h1>
-          <div className="hero-body">
-            {hero.body.map((line) => (
-              <p key={line}>{line}</p>
-            ))}
-          </div>
-          <div className="hero-keywords" aria-label="Areas of interest">
-            {hero.keywords.map((keyword) => (
-              <Pill key={keyword}>{keyword}</Pill>
-            ))}
-          </div>
-          <div className="hero-actions">
-            <Link className="button button-primary" to="/story">
-              MY STORY
-            </Link>
-            <Link className="button button-ghost" to="/work">
-              VIEW MY WORK
+          <p className="home-v2-lede">{hero.body}</p>
+          <div className="home-v2-actions">
+            <a className="home-v2-button home-v2-button-primary" href="#recently-made">
+              VIEW WHAT I MADE <span aria-hidden="true">↓</span>
+            </a>
+            <Link className="home-v2-text-link" to="/story">
+              MY STORY <span aria-hidden="true">↗</span>
             </Link>
           </div>
         </div>
 
-        <div className="hero-visual" aria-label="A playful illustration of work becoming organized">
-          <div className="doodle-orbit doodle-orbit-one" aria-hidden="true" />
-          <div className="doodle-orbit doodle-orbit-two" aria-hidden="true" />
-          <div className="doodle-card doodle-card-one" aria-hidden="true">
-            <span>DATA</span>
-            <i />
-            <i />
-            <i />
+        <div className="home-v2-scratchboard" aria-label="How Eunji approaches work">
+          <span className="scratch-star scratch-star-one" aria-hidden="true">✳</span>
+          <span className="scratch-star scratch-star-two" aria-hidden="true">✦</span>
+          <div className="scratch-note scratch-note-problem">
+            <small>WHEN I SEE</small>
+            <strong>“이걸 또 해야 해?”</strong>
           </div>
-          <div className="doodle-card doodle-card-two" aria-hidden="true">
-            <span>LOGIC</span>
-            <b>→</b>
+          <div className="scratch-arrow" aria-hidden="true">↘</div>
+          <div className="scratch-note scratch-note-answer">
+            <small>I USUALLY</small>
+            <strong>정리 → 규칙 → 자동화</strong>
           </div>
-          <div className="doodle-person" aria-hidden="true">
-            <div className="doodle-head">
-              <span className="doodle-hair" />
-              <span className="doodle-face-dot doodle-face-dot-left" />
-              <span className="doodle-face-dot doodle-face-dot-right" />
-              <span className="doodle-smile" />
-            </div>
-            <div className="doodle-body">
-              <div className="doodle-laptop">
-                <span>✦</span>
+          <p className="scratch-caption">and sometimes… 그냥 만들어버립니다.</p>
+        </div>
+      </section>
+
+      <section className="home-v2-section section-shell" id="recently-made">
+        <SectionLabel>RECENTLY MADE</SectionLabel>
+        <div className="home-v2-section-head">
+          <h2>요즘은 설명하는 것보다<br />직접 만들어보는 쪽에 가깝습니다.</h2>
+          <p>완성품만 보여주기보다 왜 만들었고, 무엇을 고치며 만들어갔는지를 남기려고 합니다.</p>
+        </div>
+
+        <div className="home-v2-products">
+          {recentProducts.map((product, index) => (
+            <article className={`home-v2-product home-v2-product-${index + 1}`} key={product.title}>
+              <div className="home-v2-product-meta">
+                <span>{product.number}</span>
+                <p>{product.kicker}</p>
               </div>
-            </div>
-          </div>
-          <span className="doodle-spark doodle-spark-one" aria-hidden="true">✦</span>
-          <span className="doodle-spark doodle-spark-two" aria-hidden="true">✦</span>
-        </div>
-      </section>
-
-      <section className="section-block section-shell about-block">
-        <SectionLabel>ABOUT</SectionLabel>
-        <div className="split-heading">
-          <h2>{about.title}</h2>
-          <div className="body-stack body-large">
-            {about.body.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section-block path-block">
-        <div className="section-shell">
-          <SectionLabel>MY PATH</SectionLabel>
-          <div className="section-heading-row">
-            <h2>하던 일은 달라졌지만, 관심은 계속 이어졌습니다.</h2>
-            <p>환자와 치료를 이해하는 일에서 시작해 데이터, 기준, 로직, 자동화와 제품으로 영역을 넓혀왔습니다.</p>
-          </div>
-          <Timeline items={pathItems} />
-        </div>
-      </section>
-
-      <section className="section-block section-shell">
-        <SectionLabel>WHAT I DO</SectionLabel>
-        <div className="section-heading-row">
-          <h2>귀찮은 일을 그냥 익숙해지려고 하진 않습니다.</h2>
-          <p>일을 하다 반복되는 패턴이 보이면, 기준을 정리하고 다른 방법으로 바꿀 수 있는지 먼저 생각합니다.</p>
-        </div>
-        <div className="method-grid">
-          {whatIDoItems.map((item) => (
-            <article className="method-card" key={item.number}>
-              <span>{item.number}</span>
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
+              <div className="home-v2-product-body">
+                <h3>{product.title}</h3>
+                <p className="home-v2-product-summary">{product.summary}</p>
+                <p className="home-v2-product-note">{product.note}</p>
+                <Link className="home-v2-product-link" to={product.href}>
+                  PROJECT NOTE <span aria-hidden="true">↗</span>
+                </Link>
+              </div>
+              <div className="home-v2-product-preview" aria-hidden="true">
+                <div className="preview-topbar"><i /><i /><i /></div>
+                <div className="preview-screen">
+                  <span>{product.title}</span>
+                  <b>{index === 0 ? 'make it simpler.' : 'tiny idea, real screen.'}</b>
+                  <div className="preview-lines"><i /><i /><i /></div>
+                </div>
+              </div>
             </article>
           ))}
         </div>
-        <p className="quiet-note">복잡한 내용을 이해하기 쉽게 정리하고 전달하는 일도 좋아합니다.</p>
       </section>
 
-      <section className="section-block selected-work-block">
+      <section className="home-v2-section home-v2-how">
         <div className="section-shell">
-          <SectionLabel>SELECTED WORK</SectionLabel>
-          <div className="section-heading-row">
-            <h2>해온 일과, 요즘 만들고 있는 것들.</h2>
-            <p>회사 내부 정보는 공개하지 않고, 문제를 어떻게 정리하고 풀었는지를 중심으로 소개합니다.</p>
+          <SectionLabel>HOW I WORK</SectionLabel>
+          <div className="home-v2-section-head home-v2-section-head-light">
+            <h2>문제가 보이면 보통<br />이런 순서로 움직입니다.</h2>
+            <p>도구를 먼저 고르기보다 사람이 왜 불편한지, 어디서 판단이 달라지는지부터 봅니다.</p>
           </div>
-          <div className="work-grid">
-            {selectedWork.map((work) => (
-              <WorkCard key={work.title} {...work} />
+
+          <div className="home-v2-methods">
+            {workingStyle.map((item, index) => (
+              <article className="home-v2-method" key={item.problem}>
+                <span className="home-v2-method-index">0{index + 1}</span>
+                <p className="home-v2-method-problem">{item.problem}</p>
+                <span className="home-v2-method-arrow" aria-hidden="true">→</span>
+                <h3>{item.action}</h3>
+                <p className="home-v2-method-detail">{item.detail}</p>
+              </article>
             ))}
-          </div>
-          <div className="section-link-row">
-            <Link className="text-link" to="/work">WORK 전체 보기 <span aria-hidden="true">→</span></Link>
           </div>
         </div>
       </section>
 
-      <section className="section-block section-shell curiosity-block">
-        <SectionLabel>STORY</SectionLabel>
-        <div className="curiosity-layout">
+      <section className="home-v2-section section-shell home-v2-career">
+        <SectionLabel>FROM CARE TO BUILD</SectionLabel>
+        <div className="home-v2-section-head">
+          <h2>하던 일은 바뀌었지만,<br />관심은 계속 이어졌습니다.</h2>
+          <p>환자와 치료를 이해하는 일에서 시작해 데이터, 기준, 자동화와 제품으로 영역을 넓혀왔습니다.</p>
+        </div>
+
+        <ol className="home-v2-career-list" aria-label="Career path">
+          {careerSteps.map((step) => (
+            <li key={`${step.year}-${step.title}`}>
+              <span>{step.year}</span>
+              <h3>{step.title}</h3>
+              <p>{step.detail}</p>
+            </li>
+          ))}
+        </ol>
+        <Link className="home-v2-text-link home-v2-career-link" to="/story">
+          커리어 이야기 더 보기 <span aria-hidden="true">→</span>
+        </Link>
+      </section>
+
+      <section className="home-v2-note-strip" aria-label="Areas Eunji works in">
+        <div className="home-v2-note-track">
+          {smallNotes.map((note) => <span key={note}>{note}</span>)}
+        </div>
+      </section>
+
+      <section className="home-v2-closing" id="contact">
+        <div className="section-shell home-v2-closing-inner">
           <div>
-            <h2>요즘은 이런 걸 궁금해합니다.</h2>
-            <p className="body-large">배운 것과 만들고 있는 것, 가끔은 삽질한 것도 기록합니다.</p>
-            <Link className="button button-ghost" to="/story">READ MY STORY</Link>
+            <SectionLabel>STILL BUILDING</SectionLabel>
+            <h2>배운 건 정리하고,<br />불편한 건 만들어봅니다.</h2>
           </div>
-          <div className="curiosity-cloud">
-            {curiosities.map((topic, index) => (
-              <span className={`curiosity-tag curiosity-tag-${(index % 4) + 1}`} key={topic}>{topic}</span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="closing-band" id="contact">
-        <div className="section-shell closing-band-inner">
-          <SectionLabel>CONTACT</SectionLabel>
-          <h2>Still learning. Still building.</h2>
-          <p>간호에서 데이터로, 데이터에서 자동화와 제품으로. 아직 만드는 중입니다.</p>
-          <div className="closing-links">
-            <Link to="/work">WORK</Link>
-            <Link to="/story">STORY</Link>
-            <a href="https://github.com/madebynia" target="_blank" rel="noreferrer">GITHUB ↗</a>
+          <div className="home-v2-closing-side">
+            <p>Clinical Data에서 시작한 관심을 자동화와 작은 제품으로 계속 넓혀가고 있습니다.</p>
+            <div className="home-v2-closing-links">
+              <Link to="/work">WORK ↗</Link>
+              <Link to="/story">STORY ↗</Link>
+              <a href="https://github.com/madebynia" target="_blank" rel="noreferrer">GITHUB ↗</a>
+            </div>
           </div>
         </div>
       </section>
