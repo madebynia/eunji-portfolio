@@ -1,7 +1,9 @@
-import { render, screen } from '@testing-library/react';
+import { cleanup, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it } from 'vitest';
 import { HomePage } from './HomePage';
+
+afterEach(() => cleanup());
 
 describe('HomePage', () => {
   it('opens with a more personal problem-solving statement', () => {
