@@ -41,3 +41,14 @@ GitHub 저장소를 Cloudflare Pages에 연결한 뒤 아래 값으로 배포합
 ## Public content policy
 
 이 저장소는 공개를 전제로 합니다. 회사 내부 문서, 실제 Study 정보, 데이터, 세부 Validation Logic, Excel 수식, 사내 템플릿 등 비공개 정보는 포함하지 않습니다.
+
+
+## Project docs
+
+AI와 이어서 작업할 때는 아래 순서를 기준으로 합니다.
+
+- `AGENTS.md` — 공통 작업 규칙
+- `HANDOFF.md` — 현재 제품 상태와 다음 작업
+- `DESIGN.md` — 시각/UX 기준
+- `PROJECT_STATUS.md` — 진행 현황
+- `docs/product-build-system/` — 기획·UI·개발·QA 작업 방식
