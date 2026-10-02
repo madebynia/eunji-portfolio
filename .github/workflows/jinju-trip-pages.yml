@@ -1,0 +1,45 @@
+name: Deploy Jinju Trip Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "public/jinju-trip/**"
+      - ".github/workflows/jinju-trip-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "jinju-trip-pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Prepare site
+        run: |
+          mkdir -p _site/jinju-trip
+          cp public/jinju-trip/index.html _site/jinju-trip/index.html
+          cat > _site/index.html <<'EOF'
+          <!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0; url=./jinju-trip/"><title>진주 생일여행</title></head><body><a href="./jinju-trip/">진주 생일여행 보기</a></body></html>
+          EOF
+          touch _site/.nojekyll
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
