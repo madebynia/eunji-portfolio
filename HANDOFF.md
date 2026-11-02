@@ -1,6 +1,6 @@
 # EUNJI Portfolio — Current Handoff
 
-**Updated:** 2026-09-29  
+**Updated:** 2026-11-03  
 **Repository:** `madebynia/eunji-portfolio`  
 **Production branch:** `main`
 
@@ -44,8 +44,9 @@ PR #1의 디자인은 **후보**이지 현재 제품 authority가 아니다.
 
 ## 기술 부채
 
-현재 package manifest가 여러 dependency를 `latest`로 사용하고 lockfile이 없다.
-재현 가능한 설치를 위해 dependency pinning + lockfile 도입이 필요하지만, 실제 dependency tree를 검증할 수 있는 환경에서 별도 작업한다.
+dependency는 정확한 버전으로 고정하고 `package-lock.json`을 커밋한다.
+Node 버전은 `.nvmrc`(22)를 따르고, CI는 `npm ci`로 lockfile 그대로 설치한다.
+버전을 올릴 때는 `npm test`와 `npm run build`를 함께 확인한다.
 
 ## 다음 작업
 
@@ -54,4 +55,4 @@ PR #1의 디자인은 **후보**이지 현재 제품 authority가 아니다.
 3. WORK / STORY의 visual language 통일
 4. mobile/desktop responsive UAT
 5. Cloudflare production 연결/URL 검증
-6. dependency pinning + lockfile 도입
+6. CONTACT 연락 수단, STORY 글, AKA·무카랭 화면 등 공개 콘텐츠 보강
