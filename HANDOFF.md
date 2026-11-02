@@ -2,7 +2,8 @@
 
 **Updated:** 2026-11-03  
 **Repository:** `madebynia/eunji-portfolio`  
-**Production branch:** `main`
+**Production branch:** `main`  
+**Production URL:** https://eunji-portfolio.pages.dev (Cloudflare Pages, main push 시 자동 배포)
 
 ## 현재 제품
 
@@ -54,5 +55,5 @@ Node 버전은 `.nvmrc`(22)를 따르고, CI는 `npm ci`로 lockfile 그대로 �
 2. v2 Home 최종 리뷰
 3. WORK / STORY의 visual language 통일
 4. mobile/desktop responsive UAT
-5. Cloudflare production 연결/URL 검증
+5. 커스텀 도메인 연결 여부 결정 (pages.dev 공개 URL은 2026-11-03 검증 완료)
 6. CONTACT 연락 수단, STORY 글, AKA·무카랭 화면 등 공개 콘텐츠 보강
