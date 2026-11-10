@@ -26,6 +26,15 @@ describe('portfolio routes', () => {
     expect(screen.getByRole('heading', { name: 'Side projects.' })).toBeInTheDocument();
   });
 
+  it('links each project to the next one in the same group', () => {
+    renderRoute('/projects/nia-work');
+    expect(screen.getByRole('heading', { level: 1, name: 'Nia Work' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /다음 프로젝트/ })).toHaveAttribute('href', '/projects/aka');
+    cleanup();
+    renderRoute('/projects/ddf-knowledge');
+    expect(screen.getByRole('link', { name: /다음 프로젝트/ })).toHaveAttribute('href', '/projects/dm-skills');
+  });
+
   it('opens a work detail directly, including confidentiality guidance', () => {
     renderRoute('/work/clinical-data');
     expect(screen.getByRole('heading', { name: 'SOP Development' })).toBeInTheDocument();

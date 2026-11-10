@@ -28,8 +28,8 @@ export const experience = [
   {
     period: '2026 — NOW',
     title: 'Clinical Data & Systems',
-    place: 'Data Management Associate',
-    body: 'Clinical Data Management와 EDC, Data Validation 업무를 이어가며 반복 업무를 줄이는 방법과 도구를 함께 만들고 있습니다.',
+    place: '임상시험 Data Management · Data Management Associate',
+    body: 'EDC, Data Validation, DM 문서 업무를 하며 반복되는 확인 작업을 줄이는 도구를 직접 만들고 있습니다.',
   },
 ];
 
@@ -91,7 +91,7 @@ export const documentation = [
 export const skillGroups = [
   {
     title: 'Clinical',
-    items: ['Oncology', 'Clinical Data Management', 'EDC', 'Data Validation', 'DVS Logic'],
+    items: ['Oncology', 'Clinical Data Management', 'EDC', 'Data Validation', 'DVS Logic', 'CDISC 표준 (학습 중)'],
   },
   {
     title: 'Workflow',
@@ -99,6 +99,6 @@ export const skillGroups = [
   },
   {
     title: 'Build',
-    items: ['SAS', 'Excel Automation', 'AI-assisted Development', 'Product Design'],
+    items: ['SAS', 'Excel Automation', 'AI-assisted Development', 'React · TypeScript', 'Tauri · Rust'],
   },
 ];
