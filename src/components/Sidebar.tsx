@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { profile } from '../content/profile';
 
@@ -44,6 +44,16 @@ export function Sidebar() {
     : pathname.startsWith('/work') ? 'work'
     : pathname.startsWith('/story') ? 'story' : '';
 
+  // On small screens the nav is a sideways-scrolling row: keep the current item in view.
+  const navRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const nav = navRef.current;
+    const link = nav?.querySelector<HTMLElement>('.nav-link.is-active');
+    if (!nav || !link || nav.scrollWidth <= nav.clientWidth) return;
+    const left = link.offsetLeft - (nav.clientWidth - link.offsetWidth) / 2;
+    nav.scrollTo({ left: Math.max(0, left), behavior: 'smooth' });
+  }, [active]);
+
   const navItems = [...homeSections.map(s => ({ key: s.id, label: s.label, to: `/#${s.id}` })), { key: 'story', label: 'Story', to: '/story' }];
 
   return (
@@ -58,7 +68,7 @@ export function Sidebar() {
           </span>
         </Link>
         <p className="sidebar-lead">{profile.sidebarLead}</p>
-        <nav className="sidebar-nav" aria-label="Primary navigation">
+        <nav className="sidebar-nav" aria-label="Primary navigation" ref={navRef}>
           <ul>
             {navItems.map(item => (
               <li key={item.key}>
