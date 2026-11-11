@@ -17,7 +17,10 @@ function useActiveSection(enabled: boolean) {
   useEffect(() => {
     if (!enabled) return;
     const update = () => {
-      const line = window.innerHeight * 0.3;
+      // Below the sticky mobile header, or 30% down the viewport, whichever is lower.
+      const header = document.querySelector('.sidebar');
+      const headerBottom = header && getComputedStyle(header).position === 'sticky' ? header.getBoundingClientRect().bottom : 0;
+      const line = Math.max(window.innerHeight * 0.3, headerBottom + 24);
       let current = homeSections[0].id;
       for (const { id } of homeSections) {
         const el = document.getElementById(id);
@@ -47,11 +50,18 @@ export function Sidebar() {
   // On small screens the nav is a sideways-scrolling row: keep the current item in view.
   const navRef = useRef<HTMLElement>(null);
   useEffect(() => {
-    const nav = navRef.current;
-    const link = nav?.querySelector<HTMLElement>('.nav-link.is-active');
-    if (!nav || !link || nav.scrollWidth <= nav.clientWidth) return;
-    const left = link.offsetLeft - (nav.clientWidth - link.offsetWidth) / 2;
-    nav.scrollTo({ left: Math.max(0, left), behavior: 'smooth' });
+    const reveal = (smooth: boolean) => {
+      const nav = navRef.current;
+      const link = nav?.querySelector<HTMLElement>('.nav-link.is-active');
+      if (!nav || !link || nav.scrollWidth <= nav.clientWidth) return;
+      const left = link.offsetLeft - (nav.clientWidth - link.offsetWidth) / 2;
+      const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+      nav.scrollTo({ left: Math.max(0, left), behavior: smooth && !reduce ? 'smooth' : 'auto' });
+    };
+    reveal(true);
+    const onResize = () => reveal(false);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
   }, [active]);
 
   const navItems = [...homeSections.map(s => ({ key: s.id, label: s.label, to: `/#${s.id}` })), { key: 'story', label: 'Story', to: '/story' }];

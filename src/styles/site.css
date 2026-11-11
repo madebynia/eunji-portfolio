@@ -147,18 +147,18 @@ button.button { background: var(--bg); font-family: inherit; cursor: pointer; }
   .sidebar-links a { display: inline-flex; align-items: center; height: 32px; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 999px; font-size: 13px; color: var(--text); }
   .sidebar-nav { grid-column: 1 / -1; grid-row: 2; margin: 0 -32px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
   .sidebar-nav::-webkit-scrollbar { display: none; }
-  .sidebar-nav ul { flex-direction: row; flex-wrap: nowrap; gap: 4px; width: max-content; padding: 0 32px 10px; }
+  .sidebar-nav ul { flex-direction: row; flex-wrap: nowrap; gap: 4px; width: max-content; padding: 4px 32px 10px; }
   .nav-link { padding: 6px 12px; border-radius: 999px; font-size: 12px; letter-spacing: .06em; white-space: nowrap; }
   .nav-link::before { display: none; }
   .nav-link.is-active { color: var(--accent); background: var(--accent-soft); }
   .content { padding: 40px 32px 32px; }
-  .section, .page-head { scroll-margin-top: 120px; }
+  html { scroll-padding-top: 120px; }
 }
 
 @media (max-width: 640px) {
   .sidebar-inner { padding: 10px 16px 0; }
   .sidebar-nav { margin: 0 -16px; }
-  .sidebar-nav ul { padding: 0 16px 10px; }
+  .sidebar-nav ul { padding: 4px 16px 10px; }
   .content { padding: 28px 16px 24px; }
   h2 { font-size: 21px; margin-bottom: 22px; }
   .section { padding-bottom: 56px; }
@@ -174,7 +174,8 @@ button.button { background: var(--bg); font-family: inherit; cursor: pointer; }
   html { scroll-behavior: auto; }
   .sidebar-nav, .sidebar-links, .skip-link, .actions, .back-link, .next-entry, .entry-arrow, .site-footer { display: none; }
   .layout { display: block; }
-  .sidebar { border: 0; }
+  .sidebar { position: static; border: 0; }
+  .sidebar-lead { display: block; }
   .sidebar-inner { position: static; height: auto; padding: 0 0 16px; }
   .content { padding: 0; }
   .section, .section + .section { padding: 16px 0; }
