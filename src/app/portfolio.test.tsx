@@ -38,8 +38,9 @@ describe('portfolio routes', () => {
 
   it('groups the projects index into tools, products and other builds', () => {
     renderRoute('/projects');
-    const groups = screen.getAllByRole('heading', { level: 2 }).map(h => h.textContent);
-    expect(groups).toEqual(expect.arrayContaining(['업무에서 시작한 도구', '불편에서 시작한 제품', '그 밖에 만들고 있는 것']));
+    const groups = screen.getAllByRole('heading', { level: 2 }).map(h => h.textContent ?? '');
+    expect(groups).toEqual(expect.arrayContaining(['업무에서 시작한 도구', '불편에서 시작한 제품']));
+    expect(groups.some(g => g.startsWith('그 밖에 만들고 있는 것'))).toBe(true);
     expect(screen.getAllByRole('heading', { level: 3 }).length).toBe(6);
     expect(screen.getByText('Momo Files').closest('ul')?.children.length).toBe(5);
   });

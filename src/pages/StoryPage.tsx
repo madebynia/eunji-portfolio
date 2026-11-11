@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { chapters, storyIdeas, storyIntro } from '../content/story';
+import { chapters, storyIntro } from '../content/story';
 
 export function StoryPage() {
   return (
@@ -23,21 +23,7 @@ export function StoryPage() {
         ))}
       </ol>
 
-      <section className="section story-notes" aria-labelledby="notes-heading">
-        <p className="eyebrow">Notes</p>
-        <h2 id="notes-heading">이 이야기는 아직 쓰는 중입니다.</h2>
-        <p className="contact-text">Threads에서 짧게 꺼낸 이야기 중 조금 더 남겨두고 싶은 것들을 이곳에 정리할 예정입니다.</p>
-        <ul className="note-cards">
-          {storyIdeas.map(story => (
-            <li key={story.title}>
-              <span className="note-tag">{story.tag}</span>
-              <h3>{story.title}</h3>
-              <p>{story.description}</p>
-              <span className="note-status">Coming soon</span>
-            </li>
-          ))}
-        </ul>
-      </section>
+      <p className="note">더 긴 이야기는 글이 준비되는 대로 이곳에 하나씩 올리겠습니다.</p>
     </main>
   );
 }

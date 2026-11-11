@@ -89,7 +89,13 @@ button.button { background: var(--bg); font-family: inherit; cursor: pointer; }
 .project-groups { display: grid; gap: 40px; }
 .group-title { margin: 0; font-size: 16px; font-weight: 700; letter-spacing: -.01em; }
 .group-caption { margin: 2px 0 14px; font-size: 14px; color: var(--text-3); }
-.project-group > .group-title + .also-list { margin-top: 14px; }
+.also-more > summary { display: flex; align-items: center; gap: 8px; cursor: pointer; list-style: none; }
+.also-more > summary::-webkit-details-marker { display: none; }
+.also-more > summary::after { content: "펼치기"; margin-left: auto; font-size: 13px; font-weight: 600; color: var(--accent); }
+.also-more[open] > summary::after { content: "접기"; }
+.also-more > summary .group-title { display: inline-flex; align-items: center; gap: 8px; }
+.also-count { display: inline-flex; align-items: center; justify-content: center; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 12px; font-weight: 700; }
+.also-more[open] > .also-list { margin-top: 14px; }
 .also-list { border-top: 1px solid var(--line); }
 .also-list li { display: grid; grid-template-columns: 190px minmax(0, 1fr) auto; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
 .also-list strong { font-weight: 700; }
@@ -117,13 +123,6 @@ button.button { background: var(--bg); font-family: inherit; cursor: pointer; }
 /* Story */
 .story-chapters { margin-bottom: 72px; }
 .story-chapters .row-body + .row-body { margin-top: 8px; }
-.story-notes { padding-top: 72px; border-top: 1px solid var(--line); }
-.note-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 28px; }
-.note-cards li { display: flex; flex-direction: column; gap: 6px; padding: 20px; border: 1px solid var(--line); border-radius: var(--radius); }
-.note-tag { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--accent); }
-.note-cards h3 { font-size: 16px; font-weight: 700; line-height: 1.5; }
-.note-cards p { font-size: 14px; color: var(--text-2); }
-.note-status { margin-top: auto; padding-top: 6px; font-size: 12px; color: var(--text-3); }
 
 .site-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; max-width: var(--content-w); margin-top: 8px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 13px; color: var(--text-3); }
 
@@ -163,7 +162,7 @@ button.button { background: var(--bg); font-family: inherit; cursor: pointer; }
   h2 { font-size: 21px; margin-bottom: 22px; }
   .section { padding-bottom: 56px; }
   .section + .section { padding-top: 56px; }
-  .facts, .principle-list, .note-cards { grid-template-columns: minmax(0, 1fr); }
+  .facts, .principle-list { grid-template-columns: minmax(0, 1fr); }
   .row-list > li, .row-list > div { grid-template-columns: minmax(0, 1fr); gap: 4px; }
   .also-list li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
   .detail-sections li { grid-template-columns: minmax(0, 1fr); gap: 4px; }
@@ -179,5 +178,5 @@ button.button { background: var(--bg); font-family: inherit; cursor: pointer; }
   .sidebar-inner { position: static; height: auto; padding: 0 0 16px; }
   .content { padding: 0; }
   .section, .section + .section { padding: 16px 0; }
-  .entry, .row-list > li, .row-list > div, .also-list li, .principle-list li, .detail-sections li, .note-cards li { break-inside: avoid; }
+  .entry, .row-list > li, .row-list > div, .also-list li, .principle-list li, .detail-sections li { break-inside: avoid; }
 }

@@ -62,10 +62,10 @@ export function ProjectGroups({ level }: { level: 'h2' | 'h3' }) {
           <EntryList entries={portfolio.filter(entry => entry.group === group.key)} level={item} />
         </div>
       ))}
-      <div className="project-group">
-        <Group className="group-title">그 밖에 만들고 있는 것</Group>
+      <details className="project-group also-more">
+        <summary><Group className="group-title">그 밖에 만들고 있는 것 <span className="also-count">{alsoBuilding.length}</span></Group></summary>
         <AlsoList />
-      </div>
+      </details>
     </div>
   );
 }
