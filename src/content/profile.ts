@@ -13,5 +13,6 @@ export const profile = {
     { label: 'BUILDING', value: 'DM 업무 도구 · 데스크톱/모바일 앱' },
     { label: 'LEARNING', value: 'CDISC 표준 · 로컬 AI' },
   ],
+  email: 'eunji921020@gmail.com',
   github: 'https://github.com/madebynia',
 };

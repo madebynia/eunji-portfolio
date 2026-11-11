@@ -20,7 +20,7 @@ HOME · WORK · STORY 세 축으로 개인 경력과 작업을 보여주는 Reac
 
 ## 현재 작업선
 
-`feat/resume-portfolio`(2026-11-11)이 현재 작업선이다. "도구를 만드는 Clinical DM" 정체성의 개발자 이력서형 사이드바 레이아웃(연보라 시그니처)으로 전면 개편했고, 업무 도구·제품 프로젝트 상세 페이지를 추가했다. 기준은 이 브랜치의 `DESIGN.md`와 `docs/resume-portfolio-design.md`다.
+`feat/resume-portfolio`(2026-11-11)는 PR #6으로 main에 병합되어 배포됐다. "도구를 만드는 Clinical DM" 정체성의 개발자 이력서형 사이드바 레이아웃(연보라 시그니처)으로 전면 개편했고, 업무 도구·제품 프로젝트 상세 페이지를 추가했다. 기준은 이 브랜치의 `DESIGN.md`와 `docs/resume-portfolio-design.md`다.
 
 `feat/portfolio-v2` / PR #1은 이전 Home redesign 후보이며 아직 Draft다. 이력서형으로 방향을 정했으므로 정리(닫기) 대상이다.
 현재 main과 diverged 상태이므로 병합 전 main 최신 변경을 반영하고 다시 리뷰해야 한다.
@@ -53,8 +53,7 @@ Node 버전은 `.nvmrc`(22)를 따르고, CI는 `npm ci`로 lockfile 그대로 �
 
 ## 다음 작업
 
-1. `feat/resume-portfolio` PR 리뷰 후 main 병합
-2. PR #1 닫기
+1. PR #1 닫기
 3. WORK / STORY의 visual language 통일
 4. mobile/desktop responsive UAT
 5. 커스텀 도메인 연결 여부 결정 (pages.dev 공개 URL은 2026-11-03 검증 완료)

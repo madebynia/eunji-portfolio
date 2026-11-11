@@ -32,6 +32,8 @@ describe('HomePage', () => {
     expect(screen.getByText('Momo Files')).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: '확인한 것만 완료라고 씁니다' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 3, name: '불편에서 시작한 제품' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: '이메일 보내기' })).toHaveAttribute('href', 'mailto:eunji921020@gmail.com');
+    expect(screen.getByRole('button', { name: '주소 복사' })).toBeInTheDocument();
     expect(screen.getAllByRole('heading', { level: 4 }).length).toBe(6);
   });
 });

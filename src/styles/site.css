@@ -39,6 +39,11 @@ h2 { margin-bottom: 28px; font-size: 24px; line-height: 1.4; letter-spacing: -.0
 .lead { margin-top: 16px; font-size: 17px; color: var(--text-2); }
 .prose { display: grid; gap: 12px; margin-top: 20px; color: var(--text-2); }
 .contact-text { margin: -12px 0 0; color: var(--text-2); font-size: 15px; }
+.contact-email { margin-top: 24px; }
+.contact-address { display: inline-block; font-size: clamp(20px, 3vw, 26px); font-weight: 700; letter-spacing: -.01em; color: var(--text); border-bottom: 2px solid var(--accent-line); overflow-wrap: anywhere; transition: color .15s ease, border-color .15s ease; }
+.contact-address:hover { color: var(--accent); border-color: var(--accent); }
+.contact-email .actions { margin-top: 20px; }
+button.button { background: var(--bg); font-family: inherit; cursor: pointer; }
 .text-link { font-weight: 600; color: var(--accent); border-bottom: 1px solid var(--accent-line); }
 
 /* Sections */

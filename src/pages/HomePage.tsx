@@ -1,8 +1,43 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Chips, EntryList, ProjectGroups } from '../components/EntryList';
 import { portfolio, workPrinciples } from '../content/portfolio';
 import { profile } from '../content/profile';
 import { experience, skillGroups } from '../content/work';
+
+function ContactEmail() {
+  const [copied, setCopied] = useState(false);
+  const copy = async () => {
+    let ok = false;
+    try {
+      await navigator.clipboard.writeText(profile.email);
+      ok = true;
+    } catch {
+      // Some browsers block the async clipboard; fall back to a selected text copy.
+      const area = document.createElement('textarea');
+      area.value = profile.email;
+      area.setAttribute('readonly', '');
+      area.style.position = 'absolute';
+      area.style.left = '-9999px';
+      document.body.appendChild(area);
+      area.select();
+      ok = document.execCommand('copy');
+      area.remove();
+    }
+    setCopied(ok);
+    if (ok) window.setTimeout(() => setCopied(false), 2000);
+  };
+  return (
+    <div className="contact-email">
+      <a className="contact-address" href={`mailto:${profile.email}`}>{profile.email}</a>
+      <div className="actions">
+        <a className="button button-primary" href={`mailto:${profile.email}`}>이메일 보내기</a>
+        <button className="button" type="button" onClick={copy}>{copied ? '복사했어요' : '주소 복사'}</button>
+      </div>
+      <p className="sr-only" aria-live="polite">{copied ? '이메일 주소를 복사했어요.' : ''}</p>
+    </div>
+  );
+}
 
 export function HomePage() {
   return (
@@ -74,10 +109,8 @@ export function HomePage() {
       <section id="contact" className="section" aria-labelledby="contact-heading">
         <p className="eyebrow">Contact</p>
         <h2 id="contact-heading">연락</h2>
-        <p className="contact-text">만든 도구와 과정이 궁금하시면 GitHub에서 확인하실 수 있습니다.</p>
-        <div className="actions">
-          <a className="button" href={profile.github} target="_blank" rel="noreferrer">GitHub ↗<span className="sr-only"> (새 탭)</span></a>
-        </div>
+        <p className="contact-text">협업이나 채용 관련 문의는 이메일로 연락해 주세요.</p>
+        <ContactEmail />
       </section>
     </main>
   );
