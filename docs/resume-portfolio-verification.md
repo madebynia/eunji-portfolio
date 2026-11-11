@@ -27,6 +27,6 @@ Project pages use only facts from each repository's own status documents. No inv
 
 ## 2026-11-11 QC round 2 fixes
 - `npm test`: 5 files, 17 tests passed (adds hash-jump focus and aria-current on project pages). `npm run build`: passed.
-- Fonts are bundled from npm (pretendard 1.3.9, @fontsource/jetbrains-mono 5.3.0); browser shows 0 external font requests and both fonts load.
+- Fonts are bundled from npm (pretendard 1.3.9); browser shows 0 external font requests. JetBrains Mono was later removed in favour of Pretendard only.
 - Browser: no horizontal overflow at 320/768/1440px on 6 routes; sidebar link moves focus to the target section.
 - Not verified: production deployment, print output, screen reader walk-through.
