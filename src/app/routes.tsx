@@ -4,6 +4,7 @@ import { HomePage } from '../pages/HomePage';
 import { StoryPage } from '../pages/StoryPage';
 import { WorkPage } from '../pages/WorkPage';
 import { NotFoundPage, PortfolioDetail, PortfolioIndex } from '../pages/PortfolioPages';
+import { ResumePage } from '../pages/ResumePage';
 import { RouteEffects } from './RouteEffects';
 
 function WorkRoute() {
@@ -15,6 +16,15 @@ function WorkRoute() {
 }
 
 export function AppRoutes() {
+  return (
+    <Routes>
+      <Route path="/resume" element={<><ResumePage /><RouteEffects /></>} />
+      <Route path="*" element={<SiteLayout />} />
+    </Routes>
+  );
+}
+
+function SiteLayout() {
   return (
     <div className="layout">
       <Sidebar />

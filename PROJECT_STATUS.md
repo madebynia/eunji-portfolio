@@ -26,11 +26,14 @@ React · Vite · TypeScript · React Router 기반 개인 브랜딩 사이트. H
 - 공개 저장소이므로 회사 내부 문서·실제 Study 정보·세부 Validation Logic·사내 템플릿은 포함하지 않는다.
 - 연락 수단은 이메일(eunji921020@gmail.com)만 공개한다. GitHub 링크는 사이트에서 뺐다(2026-11-11).
 
+- 2026-11-12: 이력서용 `/resume`과 개인 브랜딩 홈으로 영역을 나눴다. 목표 직무는 DM 또는 Product Manager.
+
 ## 다음 작업
 - PR #1(`feat/portfolio-v2`)은 닫는다.
 - 커스텀 도메인 연결 여부를 결정한다.
 - STORY 글(현재 모두 COMING SOON)과 AKA·무카랭 화면/데모를 채운다.
 - 인쇄 출력과 스크린리더로 한 번 확인한다.
+- 이력서에 학력·면허·자격·어학 추가(정보 받으면), PM 지원용 근거(사용자·결정 이유·캡처) 보강.
 
 ## 기술 부채 / 주의
 - dependency는 Renovate/Dependabot 없이 수동으로 올린다. 올릴 때는 `npm test`와 `npm run build`를 함께 확인한다.
