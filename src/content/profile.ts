@@ -14,5 +14,4 @@ export const profile = {
     { label: 'LEARNING', value: 'CDISC 표준 · 로컬 AI' },
   ],
   email: 'eunji921020@gmail.com',
-  github: 'https://github.com/madebynia',
 };

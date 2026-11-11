@@ -24,17 +24,15 @@ React · Vite · TypeScript · React Router 기반 개인 브랜딩 사이트. H
 - dependency 버전을 정확한 버전으로 고정하고 `package-lock.json`을 추가했다. Node 버전은 `.nvmrc`(22) 기준이며 CI는 `npm ci`로 설치한다.
 - Cloudflare Pages production: https://eunji-portfolio.pages.dev — 2026-11-03에 main `7c06f1f` 배포 성공을 확인했다. 공개 주소가 로컬 빌드와 같은 asset 해시를 내려주고, `/`, `/work`, `/story`, 없는 경로 직접 진입이 모두 200으로 열리며, 브라우저에서 HOME·WORK·STORY 화면과 콘솔 오류 없음을 확인했다.
 - 공개 저장소이므로 회사 내부 문서·실제 Study 정보·세부 Validation Logic·사내 템플릿은 포함하지 않는다.
+- 연락 수단은 이메일(eunji921020@gmail.com)만 공개한다. GitHub 링크는 사이트에서 뺐다(2026-11-11).
 
 ## 다음 작업
 - PR #1(`feat/portfolio-v2`)은 닫는다.
-- 연락 섹션: 이메일(eunji921020@gmail.com) 공개, GitHub는 사이드바에 유지.
-- WORK · STORY를 선택된 Home visual language와 맞춘다.
-- 모바일/데스크톱 반응형과 HOME · WORK · STORY 직접 진입을 확인한다.
 - 커스텀 도메인 연결 여부를 결정한다.
-- CONTACT에 GitHub 외 연락 수단을 추가할지 결정한다.
 - STORY 글(현재 모두 COMING SOON)과 AKA·무카랭 화면/데모를 채운다.
+- 인쇄 출력과 스크린리더로 한 번 확인한다.
 
 ## 기술 부채 / 주의
 - dependency는 Renovate/Dependabot 없이 수동으로 올린다. 올릴 때는 `npm test`와 `npm run build`를 함께 확인한다.
-- v2 Home은 아직 제품 authority가 아니다. 병합 전에는 main의 `DESIGN.md`와 실제 main 코드가 기준이다.
+- 디자인 기준은 main의 `DESIGN.md`와 실제 main 코드다. PR #1의 v2 Home은 기준이 아니다.
 - 실행하지 않은 production 검증은 완료로 기록하지 않는다.

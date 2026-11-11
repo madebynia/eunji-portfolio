@@ -54,7 +54,8 @@ Node 버전은 `.nvmrc`(22)를 따르고, CI는 `npm ci`로 lockfile 그대로 �
 ## 다음 작업
 
 1. PR #1 닫기
-3. WORK / STORY의 visual language 통일
-4. mobile/desktop responsive UAT
-5. 커스텀 도메인 연결 여부 결정 (pages.dev 공개 URL은 2026-11-03 검증 완료)
-6. CONTACT 연락 수단, STORY 글, AKA·무카랭 화면 등 공개 콘텐츠 보강
+2. 커스텀 도메인 연결 여부 결정 (pages.dev 공개 URL 검증 완료)
+3. STORY 글, AKA·무카랭 화면 등 공개 콘텐츠 보강
+4. 인쇄 출력과 스크린리더 확인
+
+연락 수단은 이메일만 공개한다(GitHub 링크 없음).

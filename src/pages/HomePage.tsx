@@ -1,12 +1,37 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Chips, EntryList, ProjectGroups } from '../components/EntryList';
 import { portfolio, workPrinciples } from '../content/portfolio';
 import { profile } from '../content/profile';
 import { experience, skillGroups } from '../content/work';
 
+type CopyState = 'idle' | 'copied' | 'failed';
+
+function copyWithSelection(text: string) {
+  const active = document.activeElement as HTMLElement | null;
+  const area = document.createElement('textarea');
+  area.value = text;
+  area.setAttribute('readonly', '');
+  area.style.position = 'fixed';
+  area.style.top = '0';
+  area.style.left = '-9999px';
+  document.body.appendChild(area);
+  try {
+    area.select();
+    return document.execCommand('copy');
+  } catch {
+    return false;
+  } finally {
+    area.remove();
+    active?.focus({ preventScroll: true });
+  }
+}
+
 function ContactEmail() {
-  const [copied, setCopied] = useState(false);
+  const [state, setState] = useState<CopyState>('idle');
+  const timer = useRef<number | undefined>(undefined);
+  useEffect(() => () => window.clearTimeout(timer.current), []);
+
   const copy = async () => {
     let ok = false;
     try {
@@ -14,27 +39,23 @@ function ContactEmail() {
       ok = true;
     } catch {
       // Some browsers block the async clipboard; fall back to a selected text copy.
-      const area = document.createElement('textarea');
-      area.value = profile.email;
-      area.setAttribute('readonly', '');
-      area.style.position = 'absolute';
-      area.style.left = '-9999px';
-      document.body.appendChild(area);
-      area.select();
-      ok = document.execCommand('copy');
-      area.remove();
+      ok = copyWithSelection(profile.email);
     }
-    setCopied(ok);
-    if (ok) window.setTimeout(() => setCopied(false), 2000);
+    setState(ok ? 'copied' : 'failed');
+    window.clearTimeout(timer.current);
+    if (ok) timer.current = window.setTimeout(() => setState('idle'), 2000);
   };
+
   return (
     <div className="contact-email">
-      <a className="contact-address" href={`mailto:${profile.email}`}>{profile.email}</a>
+      <p className="contact-address">{profile.email}</p>
       <div className="actions">
         <a className="button button-primary" href={`mailto:${profile.email}`}>이메일 보내기</a>
-        <button className="button" type="button" onClick={copy}>{copied ? '복사했어요' : '주소 복사'}</button>
+        <button className="button" type="button" onClick={copy}>주소 복사</button>
+        <span className="copy-status" role="status">
+          {state === 'copied' ? '복사했어요' : state === 'failed' ? '복사하지 못했어요. 주소를 직접 선택해 주세요.' : ''}
+        </span>
       </div>
-      <p className="sr-only" aria-live="polite">{copied ? '이메일 주소를 복사했어요.' : ''}</p>
     </div>
   );
 }
