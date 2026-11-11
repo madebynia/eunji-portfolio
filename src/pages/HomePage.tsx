@@ -67,6 +67,9 @@ export function HomePage() {
         <p className="eyebrow">About</p>
         <h1 id="about-heading">{profile.headline[0]}<br />{profile.headline[1]}</h1>
         <div className="prose">{profile.intro.map(text => <p key={text}>{text}</p>)}</div>
+        <dl className="stats">
+          {profile.stats.map(stat => <div key={stat.label}><dt>{stat.label}</dt><dd>{stat.value}</dd></div>)}
+        </dl>
         <dl className="facts">
           {profile.facts.map(fact => <div key={fact.label}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}
         </dl>

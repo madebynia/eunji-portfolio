@@ -9,13 +9,13 @@ export const experience = [
     period: '2019 — 2025',
     title: 'Oncology Clinical Research & Data',
     place: '국립암센터 · 임상시험센터',
-    body: '항암제 임상시험을 중심으로 연구 운영과 데이터 업무를 수행했고, 업무 표준화와 SOP·DVS Manual·DVS Logic 개발을 맡았습니다.',
+    body: '항암제 임상시험 약 30건의 데이터 검증 Logic QC를 담당했고, 업무 표준화와 SOP·DVS Manual·DVS Logic 개발을 맡았습니다. 연구 행정·계약 업무와 채용 업무도 함께 담당했습니다.',
   },
   {
     period: '2026 — NOW',
     title: 'Clinical Data & Systems',
     place: '임상시험 Data Management · Data Management Associate',
-    body: 'EDC, Data Validation, DM 문서 업무를 하고 있습니다. 업무 밖에서는 반복되는 확인 작업을 줄이는 도구를 개인 프로젝트로 만들고 있습니다.',
+    body: '임상시험 DM 업무 전반을 맡아 쿼리 발행까지 직접 수행하고 있습니다. 최근에는 글로벌 제약사의 시판 후 조사(PMS, SIT)와 의료기기 연구자 주도 임상(IIT)의 셋업과 Validation을 담당했습니다.',
   },
 ];
 
@@ -34,13 +34,13 @@ export const standardizationItems = [
   },
   {
     title: 'DVS Logic Design',
-    body: '데이터 검증 기준을 실제 검증에 사용할 수 있는 Logic으로 구체화했습니다.',
+    body: '데이터 검증 기준을 실제 검증에 사용할 수 있는 Logic으로 구체화했고, 항암제 임상시험 약 30건의 Logic QC를 담당했습니다.',
   },
 ];
 
 export const automation = {
   title: 'Excel Workflow Automation',
-  body: '반복되는 문서 작성과 일정 관리 업무를 줄이기 위해 Excel 수식과 템플릿을 업무 흐름에 맞게 구성했습니다.',
+  body: '반복되는 문서 작성과 일정 관리 업무를 Excel 수식과 템플릿으로 바꿔, 주 3시간 걸리던 작업을 1시간으로 줄였습니다.',
   notes: [
     '반복 입력과 확인 작업을 가능한 만큼 수식과 규칙으로 줄이기',
     '중간 수정이 잦은 문서에서 다시 손대야 하는 범위를 줄이기',
@@ -51,7 +51,11 @@ export const automation = {
 export const skillGroups = [
   {
     title: 'Clinical',
-    items: ['Oncology', 'Clinical Data Management', 'EDC', 'Data Validation', 'DVS Logic', 'CDISC 표준 (학습 중)'],
+    items: ['Oncology', 'Clinical Data Management', 'Data Validation', 'DVS Logic QC', 'Query Management', 'Study Setup · Validation', 'SIT · IIT · PMS', 'CDISC 표준 (학습 중)'],
+  },
+  {
+    title: 'EDC',
+    items: ['myTrial', 'CRScube', 'Maven'],
   },
   {
     title: 'Workflow',
