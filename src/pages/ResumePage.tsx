@@ -7,7 +7,7 @@ const resumeProjects = ['dm-skills', 'dm-tool', 'ddf-knowledge', 'nia-work'];
 
 export function ResumePage() {
   const work = portfolio.filter(entry => entry.kind === 'work');
-  const projects = resumeProjects.map(slug => portfolio.find(entry => entry.slug === slug)!).filter(Boolean);
+  const projects = portfolio.filter(entry => resumeProjects.includes(entry.slug));
 
   return (
     <div className="resume-layout">
@@ -22,7 +22,10 @@ export function ResumePage() {
             <h1>{profile.name}</h1>
             <p className="resume-role">{profile.role}</p>
           </div>
-          <a className="resume-email" href={`mailto:${profile.email}`}>{profile.email}</a>
+          <div>
+            <a className="resume-email" href={`mailto:${profile.email}`}>{profile.email}</a>
+            <p className="resume-print-url">eunji-portfolio.pages.dev/resume</p>
+          </div>
         </header>
 
         <p className="resume-summary">{profile.intro.join(' ')}</p>

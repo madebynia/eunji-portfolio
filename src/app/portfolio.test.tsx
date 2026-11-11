@@ -73,6 +73,18 @@ describe('portfolio routes', () => {
     expect(screen.queryByRole('link', { name: 'AKA' })).toBeNull();
     expect(screen.getByRole('link', { name: 'eunji921020@gmail.com' })).toHaveAttribute('href', 'mailto:eunji921020@gmail.com');
     expect(screen.getByRole('button', { name: 'PDF로 저장' })).toBeInTheDocument();
+    const projects = screen.getByRole('heading', { name: '업무 도구와 대표 프로젝트' }).closest('section')!;
+    expect(within(projects).getAllByRole('heading', { level: 3 }).map(h => h.querySelector('a')?.textContent))
+      .toEqual(['DM Skills', 'DM Tool', 'DDF Knowledge', 'Nia Work']);
+  });
+
+  it('moves to the top of the resume when it is opened from the home page', async () => {
+    renderRoute('/');
+    const career = screen.getByRole('heading', { name: '경력' }).closest('section')!;
+    fireEvent.click(within(career).getByRole('link', { name: '이력서 보기' }));
+    expect(await screen.findByRole('heading', { level: 1, name: 'EUNJI' })).toBeInTheDocument();
+    await waitFor(() => expect(document.activeElement?.id).toBe('main-content'));
+    expect(window.scrollTo).toHaveBeenCalledWith({ top: 0, behavior: 'instant' });
   });
 
   it('opens a work detail directly, including confidentiality guidance', () => {

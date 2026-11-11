@@ -17,10 +17,13 @@ function WorkRoute() {
 
 export function AppRoutes() {
   return (
-    <Routes>
-      <Route path="/resume" element={<><ResumePage /><RouteEffects /></>} />
-      <Route path="*" element={<SiteLayout />} />
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/resume" element={<ResumePage />} />
+        <Route path="*" element={<SiteLayout />} />
+      </Routes>
+      <RouteEffects />
+    </>
   );
 }
 
@@ -40,7 +43,6 @@ function SiteLayout() {
       </Routes>
       <SiteFooter />
       </div>
-      <RouteEffects />
     </div>
   );
 }

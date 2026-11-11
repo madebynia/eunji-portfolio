@@ -159,20 +159,21 @@ button.button { background: var(--bg); font-family: inherit; cursor: pointer; }
   .resume-layout { padding: 20px 16px 40px; }
   .resume-head h1 { font-size: 30px; }
 }
+.resume-print-url { display: none; }
+@page resume { size: A4; margin: 14mm; }
 @media print {
-  @page { size: A4; margin: 14mm 14mm; }
+  .resume-layout { page: resume; max-width: none; padding: 0; font-size: 12px; }
   .resume-toolbar { display: none; }
-  .resume-layout { max-width: none; padding: 0; }
-  body { font-size: 12px; }
-  .resume-head h1 { font-size: 26px; }
-  .resume-summary, .resume-items p, .row-body { font-size: 12px; }
-  .resume-block { margin-top: 18px; break-inside: auto; }
-  .resume-block > h2 { font-size: 15px; margin-bottom: 8px; }
-  .resume-items li { break-inside: avoid; }
-  .stats div { padding: 8px 12px; }
-  .stats dd { font-size: 18px; }
-  .chip { padding: 2px 6px; font-size: 10px; }
-  a { color: inherit; }
+  .resume-print-url { display: block; margin-top: 6px; font-size: 11px; color: var(--text-3); }
+  .resume-layout .resume-head h1 { font-size: 26px; }
+  .resume-layout .resume-summary, .resume-layout .resume-items p, .resume-layout .row-body { font-size: 12px; }
+  .resume-layout .resume-block { margin-top: 18px; }
+  .resume-layout .resume-block > h2 { font-size: 15px; margin-bottom: 8px; }
+  .resume-layout .resume-items li { break-inside: avoid; }
+  .resume-layout .stats div { padding: 8px 12px; }
+  .resume-layout .stats dd { font-size: 18px; }
+  .resume-layout .chip { padding: 2px 6px; font-size: 10px; }
+  .resume-layout a { color: inherit; }
 }
 
 @media (prefers-reduced-motion: reduce) {
