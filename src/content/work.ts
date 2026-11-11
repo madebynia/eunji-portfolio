@@ -9,13 +9,13 @@ export const experience = [
     period: '2019 — 2025',
     title: 'Oncology Clinical Research & Data',
     place: '국립암센터 · 임상시험센터',
-    body: '연구자 주도 임상(IIT)을 중심으로 항암제 임상시험 약 30건의 데이터 검증 Logic QC를 담당했고, 업무 표준화와 SOP·DVS Manual·DVS Logic 개발을 맡았습니다. 연구 행정·계약 업무와 채용 업무도 함께 담당했습니다.',
+    body: '연구자 주도 임상(IIT)을 중심으로 Oncology 분야 임상연구 약 30건(항암제·의료기기·아스피린 연구 등)의 데이터 검증 Logic QC를 담당했고, 업무 표준화와 SOP·DVS Manual·DVS Logic 개발을 맡았습니다. 연구 행정·계약 업무와 채용 업무도 함께 담당했습니다.',
   },
   {
     period: '2026 — NOW',
     title: 'Clinical Data & Systems',
     place: '임상시험 Data Management · Data Management Associate',
-    body: '임상시험 DM 업무 전반을 맡아 쿼리 발행까지 직접 수행하고 있습니다. 최근에는 글로벌 제약사의 시판 후 조사(PMS)를 맡았고, 연구자 주도 임상(IIT)에서는 의료기기 관련 셋업과 Validation을 담당했습니다.',
+    body: '임상시험 DM 업무 전반을 맡아 쿼리 발행까지 직접 수행하고 있습니다. 최근에는 의료기기 연구자 주도 임상(IIT)의 셋업과 Validation을 담당했고, 글로벌 제약사 시판 후 조사(PMS)의 셋업을 앞두고 있습니다.',
   },
 ];
 
@@ -34,7 +34,7 @@ export const standardizationItems = [
   },
   {
     title: 'DVS Logic Design',
-    body: '데이터 검증 기준을 실제 검증에 사용할 수 있는 Logic으로 구체화했고, 항암제 임상시험 약 30건(대부분 연구자 주도 임상)의 Logic QC를 담당했습니다.',
+    body: '데이터 검증 기준을 실제 검증에 사용할 수 있는 Logic으로 구체화했고, Oncology 분야 임상연구 약 30건(항암제·의료기기·아스피린 연구 등, 대부분 연구자 주도 임상)의 Logic QC를 담당했습니다.',
   },
 ];
 
