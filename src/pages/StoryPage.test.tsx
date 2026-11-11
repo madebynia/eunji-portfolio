@@ -1,10 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
+import { MemoryRouter } from 'react-router-dom';
 import { StoryPage } from './StoryPage';
 
 describe('StoryPage', () => {
   it('introduces the career story in natural Korean', () => {
-    render(<StoryPage />);
+    render(<MemoryRouter><StoryPage /></MemoryRouter>);
 
     expect(
       screen.getByRole('heading', {

@@ -4,7 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { AppRoutes } from './routes';
 
 describe('portfolio navigation', () => {
-  it('renders the shared English navigation labels', () => {
+  it('renders the sidebar identity and section navigation', () => {
     render(
       <MemoryRouter>
         <AppRoutes />
@@ -15,9 +15,9 @@ describe('portfolio navigation', () => {
       screen.getByRole('navigation', { name: 'Primary navigation' }),
     );
 
-    expect(navigation.getByRole('link', { name: 'HOME' })).toBeInTheDocument();
-    expect(navigation.getByRole('link', { name: 'WORK' })).toBeInTheDocument();
-    expect(navigation.getByRole('link', { name: 'STORY' })).toBeInTheDocument();
-    expect(navigation.getByRole('link', { name: 'CONTACT' })).toBeInTheDocument();
+    for (const [name, href] of [['Experience', '/#experience'], ['Work', '/#work'], ['Projects', '/#projects'], ['Contact', '/#contact'], ['Story', '/story']]) {
+      expect(navigation.getByRole('link', { name })).toHaveAttribute('href', href);
+    }
+    expect(screen.getByRole('link', { name: /EUNJI/ })).toHaveAttribute('href', '/');
   });
 });

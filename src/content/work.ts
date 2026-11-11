@@ -1,17 +1,3 @@
-export const workIntro = {
-  role: 'Data Management Associate',
-  title: 'Clinical Data를 다루고, 일하는 방식을 더 낫게 만듭니다.',
-  body: 'Oncology 현장에서 시작한 경험을 바탕으로 Clinical Data Management, 업무 표준화, 검증 Logic, 자동화를 다루고 있습니다.',
-  keywords: [
-    'Oncology',
-    'Clinical Data Management',
-    'EDC',
-    'Data Validation',
-    'Workflow Design',
-    'Automation',
-  ],
-};
-
 export const experience = [
   {
     period: '2016 — 2018',
@@ -28,8 +14,8 @@ export const experience = [
   {
     period: '2026 — NOW',
     title: 'Clinical Data & Systems',
-    place: 'Data Management Associate',
-    body: 'Clinical Data Management와 EDC, Data Validation 업무를 이어가며 반복 업무를 줄이는 방법과 도구를 함께 만들고 있습니다.',
+    place: '임상시험 Data Management · Data Management Associate',
+    body: 'EDC, Data Validation, DM 문서 업무를 하고 있습니다. 업무 밖에서는 반복되는 확인 작업을 줄이는 도구를 개인 프로젝트로 만들고 있습니다.',
   },
 ];
 
@@ -62,36 +48,10 @@ export const automation = {
   ],
 };
 
-export const products = [
-  {
-    title: 'AKA',
-    eyebrow: 'PERSONAL PRODUCT',
-    body: '일상에서 느낀 불편을 출발점으로 직접 기획하고 구현하고 있는 개인 프로젝트입니다.',
-    note: '공개 가능한 화면과 데모를 정리한 뒤 Case Study로 확장할 예정입니다.',
-  },
-  {
-    title: '무카랭',
-    eyebrow: 'PERSONAL PRODUCT',
-    body: '아이디어를 실제 UI와 기능으로 옮기며 제품을 만드는 과정을 익혀가고 있는 개인 프로젝트입니다.',
-    note: '문제 정의와 기능 결정 과정을 중심으로 제작 기록을 추가할 예정입니다.',
-  },
-];
-
-export const documentation = [
-  {
-    title: 'SOP & Manual',
-    body: '복잡한 업무 기준을 다른 사람이 그대로 따라갈 수 있는 문서로 정리했습니다.',
-  },
-  {
-    title: 'Visual Materials',
-    body: '업무와 연구 내용을 대상에 맞게 이해하기 쉽도록 정리해 홍보물을 직접 제작했습니다.',
-  },
-];
-
 export const skillGroups = [
   {
     title: 'Clinical',
-    items: ['Oncology', 'Clinical Data Management', 'EDC', 'Data Validation', 'DVS Logic'],
+    items: ['Oncology', 'Clinical Data Management', 'EDC', 'Data Validation', 'DVS Logic', 'CDISC 표준 (학습 중)'],
   },
   {
     title: 'Workflow',
@@ -99,6 +59,6 @@ export const skillGroups = [
   },
   {
     title: 'Build',
-    items: ['SAS', 'Excel Automation', 'AI-assisted Development', 'Product Design'],
+    items: ['SAS', 'Excel Automation', 'AI-assisted Development', 'React · TypeScript', 'Tauri · Rust'],
   },
 ];
