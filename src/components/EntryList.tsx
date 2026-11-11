@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { alsoBuilding, entryPath, portfolio, type PortfolioEntry } from '../content/portfolio';
 
@@ -51,6 +52,15 @@ const groups = [
 ] as const;
 
 export function ProjectGroups({ level }: { level: 'h2' | 'h3' }) {
+  // Collapsed side builds should still appear when the page is printed or saved as PDF.
+  useEffect(() => {
+    const opened: HTMLDetailsElement[] = [];
+    const before = () => document.querySelectorAll<HTMLDetailsElement>('details.also-more:not([open])').forEach(d => { d.open = true; opened.push(d); });
+    const after = () => { opened.splice(0).forEach(d => { d.open = false; }); };
+    window.addEventListener('beforeprint', before);
+    window.addEventListener('afterprint', after);
+    return () => { window.removeEventListener('beforeprint', before); window.removeEventListener('afterprint', after); };
+  }, []);
   const Group = level;
   const item: Level = level === 'h2' ? 'h3' : 'h4';
   return (
@@ -62,10 +72,13 @@ export function ProjectGroups({ level }: { level: 'h2' | 'h3' }) {
           <EntryList entries={portfolio.filter(entry => entry.group === group.key)} level={item} />
         </div>
       ))}
-      <details className="project-group also-more">
-        <summary><Group className="group-title">그 밖에 만들고 있는 것 <span className="also-count">{alsoBuilding.length}</span></Group></summary>
-        <AlsoList />
-      </details>
+      <div className="project-group">
+        <Group className="group-title">그 밖에 만들고 있는 것</Group>
+        <details className="also-more">
+          <summary>{alsoBuilding.length}개 프로젝트 보기</summary>
+          <AlsoList />
+        </details>
+      </div>
     </div>
   );
 }
