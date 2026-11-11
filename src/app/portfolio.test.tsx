@@ -38,8 +38,14 @@ describe('portfolio routes', () => {
 
   it('groups the projects index into tools, products and other builds', () => {
     renderRoute('/projects');
-    const groups = screen.getAllByRole('heading', { level: 2 }).map(h => h.textContent);
+    const groups = screen.getAllByRole('heading', { level: 2 }).map(h => h.textContent ?? '');
     expect(groups).toEqual(expect.arrayContaining(['업무에서 시작한 도구', '불편에서 시작한 제품', '그 밖에 만들고 있는 것']));
+    const more = screen.getByText('5개 프로젝트 보기').closest('details');
+    expect(more).not.toHaveAttribute('open');
+    window.dispatchEvent(new Event('beforeprint'));
+    expect(more).toHaveAttribute('open');
+    window.dispatchEvent(new Event('afterprint'));
+    expect(more).not.toHaveAttribute('open');
     expect(screen.getAllByRole('heading', { level: 3 }).length).toBe(6);
     expect(screen.getByText('Momo Files').closest('ul')?.children.length).toBe(5);
   });

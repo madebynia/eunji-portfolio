@@ -12,7 +12,7 @@ describe('StoryPage', () => {
         name: '처음부터 데이터를 다루던 사람은 아니었습니다.',
       }),
     ).toBeInTheDocument();
-    expect(screen.getByText('병동 간호사에서 Clinical DM이 되기까지')).toBeInTheDocument();
-    expect(screen.getByText('반복 작업이 너무 귀찮아서 자동화를 시작한 이야기')).toBeInTheDocument();
+    expect(screen.queryByText(/coming soon/i)).toBeNull();
+    expect(screen.getByText(/글이 준비되는 대로/)).toBeInTheDocument();
   });
 });

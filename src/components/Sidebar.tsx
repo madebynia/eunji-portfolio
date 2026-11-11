@@ -74,7 +74,7 @@ export function Sidebar() {
           <img className="avatar" src="/images/eunji-avatar-720.webp" alt="" width="64" height="64" />
           <span>
             <span className="identity-name">{profile.name}</span>
-            <span className="identity-role">{profile.role}</span>
+            <span className="identity-role">{profile.role.split(' · ').map((part, i) => <span className="role-part" key={part}>{i > 0 && <span className="sr-only">, </span>}{part}</span>)}</span>
           </span>
         </Link>
         <p className="sidebar-lead">{profile.sidebarLead}</p>

@@ -50,36 +50,3 @@ export const chapters = [
     ],
   },
 ];
-
-export const storyIdeas = [
-  {
-    title: '병동 간호사에서 Clinical DM이 되기까지',
-    tag: 'CAREER',
-    description: '병동을 떠난 이유보다, 다음 일을 어떻게 알게 됐는지부터 천천히 써보려 합니다.',
-  },
-  {
-    title: '암 환자를 돌보던 경험이 Clinical Data 업무에 도움이 된 순간',
-    tag: 'ONCOLOGY',
-    description: '임상 현장을 알고 데이터를 보는 것의 차이에 대한 기록입니다.',
-  },
-  {
-    title: 'SOP와 Manual을 만들면서 알게 된 것',
-    tag: 'WORK',
-    description: '좋은 문서는 예쁘게 정리된 문서보다 실제 업무 기준을 분명하게 만드는 문서였습니다.',
-  },
-  {
-    title: '반복 작업이 너무 귀찮아서 자동화를 시작한 이야기',
-    tag: 'AUTOMATION',
-    description: '거창한 계기보다 “이걸 또 해야 해?”라는 생각에서 시작한 자동화 이야기입니다.',
-  },
-  {
-    title: 'AI를 쓰면 일이 빨라질 줄 알았는데 검수가 더 늘어난 이야기',
-    tag: 'AI',
-    description: 'AI를 어디에 쓰면 편하고, 어디에 쓰면 오히려 확인할 일이 늘어나는지 직접 부딪혀본 기록입니다.',
-  },
-  {
-    title: '비전공자인데 앱을 만들기 시작한 이유',
-    tag: 'BUILD',
-    description: '개발자가 되겠다는 결심보다, 만들고 싶은 게 생겨서 시작했습니다.',
-  },
-];
