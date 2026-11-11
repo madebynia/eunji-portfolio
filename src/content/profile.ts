@@ -1,5 +1,5 @@
 export const profile = {
-  name: 'Eunji Lee',
+  name: 'EUNJI',
   role: 'Clinical Data Management · Tool Builder',
   sidebarLead: 'Oncology 간호에서 임상시험 데이터로. 업무 기준을 세우고, 반복되는 확인 작업을 도구로 만듭니다.',
   headline: ['임상 데이터의 기준을 세우고,', '필요한 도구는 직접 만듭니다.'],

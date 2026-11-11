@@ -18,6 +18,6 @@ describe('portfolio navigation', () => {
     for (const [name, href] of [['Experience', '/#experience'], ['Work', '/#work'], ['Projects', '/#projects'], ['Contact', '/#contact'], ['Story', '/story']]) {
       expect(navigation.getByRole('link', { name })).toHaveAttribute('href', href);
     }
-    expect(screen.getByRole('link', { name: /Eunji Lee/ })).toHaveAttribute('href', '/');
+    expect(screen.getByRole('link', { name: /EUNJI/ })).toHaveAttribute('href', '/');
   });
 });

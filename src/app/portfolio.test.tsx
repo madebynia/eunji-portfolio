@@ -22,7 +22,7 @@ describe('portfolio routes', () => {
     fireEvent.click(screen.getByRole('link', { name: /AKA/ }));
     expect(screen.getByRole('heading', { level: 1, name: 'AKA' })).toBeInTheDocument();
     expect(screen.getByText(/현재 제작 중인 개인 프로젝트/)).toBeInTheDocument();
-    await waitFor(() => expect(document.title).toBe('AKA | Eunji Lee'));
+    await waitFor(() => expect(document.title).toBe('AKA | EUNJI'));
     fireEvent.click(screen.getByRole('button', { name: '브라우저 뒤로' }));
     expect(screen.getByRole('heading', { level: 1, name: '만들고 있는 것' })).toBeInTheDocument();
   });

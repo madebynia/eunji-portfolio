@@ -11,7 +11,7 @@ export function RouteEffects() {
     const initial = first.current;
     first.current = false;
     const title = document.querySelector('main h1')?.textContent;
-    document.title = location.pathname === '/' ? 'Eunji Lee — Clinical Data Management' : title ? `${title} | Eunji Lee` : 'Eunji Lee';
+    document.title = location.pathname === '/' ? 'EUNJI — Clinical Data Management' : title ? `${title} | EUNJI` : 'EUNJI';
     const frame = requestAnimationFrame(() => {
       const main = document.querySelector<HTMLElement>('main');
       if (main) { main.id = 'main-content'; main.tabIndex = -1; }
