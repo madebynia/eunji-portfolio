@@ -29,7 +29,8 @@ function useActiveSection(enabled: boolean) {
     };
     update();
     window.addEventListener('scroll', update, { passive: true });
-    return () => window.removeEventListener('scroll', update);
+    window.addEventListener('resize', update);
+    return () => { window.removeEventListener('scroll', update); window.removeEventListener('resize', update); };
   }, [enabled]);
   return active;
 }
@@ -63,7 +64,7 @@ export function Sidebar() {
               <li key={item.key}>
                 <Link
                   className={active === item.key ? 'nav-link is-active' : 'nav-link'}
-                  aria-current={active === item.key ? 'location' : undefined}
+                  aria-current={active === item.key ? (isHome ? 'location' : 'true') : undefined}
                   to={item.to}
                 >
                   {item.label}

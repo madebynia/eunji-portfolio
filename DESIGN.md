@@ -15,7 +15,7 @@
 
 `src/styles/tokens.css`가 기준이다. 색은 연보라 계열 `--accent`(#6a55a6, 흰 바탕 대비 약 5.6:1), `--accent-soft`(#f3f0fb), `--accent-line`(#d9d0f0), `--accent-wash`(#fbfaff)만 포인트로 쓰고, 나머지는 `--text`, `--text-2`, `--text-3`, `--line`, `--surface`로 표현한다. 새 색을 하드코딩하지 않는다.
 
-글꼴: Pretendard Variable(본문), JetBrains Mono(날짜·라벨·태그). 화면의 글자는 12px보다 작게 하지 않는다.
+글꼴: Pretendard Variable(본문), JetBrains Mono(날짜·라벨·태그). 둘 다 npm 패키지로 사이트에 포함해 외부 글꼴 서버를 부르지 않는다. 화면의 글자는 12px보다 작게 하지 않는다.
 
 ## 레이아웃
 

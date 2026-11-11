@@ -4,7 +4,7 @@ import { alsoBuilding, entryPath, portfolio, type PortfolioEntry } from '../cont
 type Level = 'h2' | 'h3' | 'h4';
 
 export function Chips({ items }: { items: string[] }) {
-  return <p className="chips">{items.map(item => <span className="chip" key={item}>{item}</span>)}</p>;
+  return <ul className="chips" aria-label="키워드">{items.map(item => <li className="chip" key={item}>{item}</li>)}</ul>;
 }
 
 export function EntryList({ entries, level = 'h3' }: { entries: PortfolioEntry[]; level?: Level }) {
@@ -46,7 +46,7 @@ export function AlsoList() {
 }
 
 const groups = [
-  { key: 'tools', title: '업무에서 시작한 도구', caption: '매일 하는 DM 일에서 반복되는 확인을 도구로 옮깁니다.' },
+  { key: 'tools', title: '업무에서 시작한 도구', caption: 'DM 업무를 하며 눈에 띈 반복 작업을 개인 프로젝트로 도구화해 봅니다.' },
   { key: 'products', title: '불편에서 시작한 제품', caption: '직접 쓰려고 기획하고 만드는 앱입니다.' },
 ] as const;
 

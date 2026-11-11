@@ -63,7 +63,7 @@ export function HomePage() {
         <ol className="principle-list">
           {workPrinciples.map((item, index) => (
             <li key={item.title}>
-              <span className="principle-index">0{index + 1}</span>
+              <span className="principle-index" aria-hidden="true">0{index + 1}</span>
               <h3>{item.title}</h3>
               <p>{item.body}</p>
             </li>

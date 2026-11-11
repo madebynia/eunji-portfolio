@@ -1,10 +1,11 @@
-import { fireEvent, render, screen, waitFor, cleanup } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor, cleanup, within } from '@testing-library/react';
 import { MemoryRouter, useNavigate } from 'react-router-dom';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { AppRoutes } from './routes';
 
 afterEach(cleanup);
 vi.stubGlobal('scrollTo', vi.fn());
+Element.prototype.scrollIntoView = vi.fn();
 
 function BackButton() {
   const navigate = useNavigate();
@@ -41,6 +42,19 @@ describe('portfolio routes', () => {
     expect(groups).toEqual(expect.arrayContaining(['업무에서 시작한 도구', '불편에서 시작한 제품', '그 밖에 만들고 있는 것']));
     expect(screen.getAllByRole('heading', { level: 3 }).length).toBe(6);
     expect(screen.getByText('Momo Files').closest('ul')?.children.length).toBe(5);
+  });
+
+  it('moves keyboard focus to the section a sidebar link jumps to', async () => {
+    renderRoute('/');
+    const nav = screen.getByRole('navigation', { name: 'Primary navigation' });
+    fireEvent.click(within(nav).getByRole('link', { name: 'Skills' }));
+    await waitFor(() => expect(document.activeElement?.id).toBe('skills'));
+  });
+
+  it('marks the projects nav item as current on a project page', () => {
+    renderRoute('/projects/aka');
+    const nav = screen.getByRole('navigation', { name: 'Primary navigation' });
+    expect(within(nav).getByRole('link', { name: 'Projects' })).toHaveAttribute('aria-current', 'true');
   });
 
   it('opens a work detail directly, including confidentiality guidance', () => {
