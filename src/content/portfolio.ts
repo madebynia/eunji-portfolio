@@ -92,14 +92,14 @@ export const portfolio: PortfolioEntry[] = [
   {
     slug: 'nia-work', kind: 'projects', group: 'products', number: '03',
     title: 'Nia Work', label: 'PERSONAL PRODUCT / AI TEAM DESKTOP',
-    summary: '여러 AI가 역할을 나눠 일정, 문서 정리, 개발 작업을 돕는 Windows 데스크톱 앱입니다.',
+    summary: '여러 AI가 역할을 나눠 일정, 문서, DM 업무를 돕는 Windows 데스크톱 앱입니다. 업무에는 회사가 승인한 범위 안에서 익명화를 거쳐 사용합니다.',
     tags: ['Tauri', 'Rust', 'TypeScript', 'Multi-agent'],
     sections: [
       { title: '역할이 있는 AI 팀', body: '일정·메일, 시스템 설정, Data Validation, 문서 담당 AI가 한 방에서 일하고, 요청 내용에 맞는 담당이 먼저 답합니다.' },
-      { title: '가리고, 보내고, 되돌리기', body: 'AI에 요청하기 전에 이름 같은 민감할 수 있는 값을 가리고, 답을 받은 뒤 원래 값으로 복원하도록 설계했습니다.' },
+      { title: '익명화한 뒤에만 AI로', body: 'AI에 요청하기 전에 과제명, 약물명, 사람 이름 같은 값을 자동으로 가리고, 답을 받은 뒤 원래 값으로 복원합니다. 어떤 값을 가릴지는 과제마다 직접 확인합니다.' },
       { title: '승인과 독립 QC', body: 'GitHub 이슈에서 시작하는 개발 작업이 사용자 승인, 작업, 빌드와 테스트, 독립 QC 순서로 진행되도록 설계했습니다.' },
     ],
-    note: '현재 제작 중인 개인 프로젝트입니다. 화면 시연과 기능 검증은 가상 데이터로 합니다.',
+    note: '현재 제작 중인 개인 프로젝트입니다. 업무에 쓸 때는 회사가 승인한 범위 안에서 익명화한 뒤 사용하며, 화면 시연과 기능 검증은 가상 데이터로 합니다.',
   },
 ];
 
@@ -114,7 +114,7 @@ export const alsoBuilding = [
 export const workPrinciples = [
   { title: '확인한 것만 완료라고 씁니다', body: '테스트, 실제 화면 확인, 아직 확인하지 못한 항목을 나눠 기록합니다. 실행해 보지 않은 것은 “미검증”으로 남깁니다.' },
   { title: '만든 쪽과 검토하는 쪽을 나눕니다', body: '개인 프로젝트의 개발 작업은 별도의 리뷰어가 독립적으로 QC하도록 하고, 지적된 내용을 고친 뒤에 마무리합니다.' },
-  { title: '공개할 것과 지킬 것을 먼저 정합니다', body: '공개 자료에는 실제 과제 정보와 사내 문서를 넣지 않고, 도구의 시연과 검증은 가상 데이터로 합니다.' },
+  { title: '공개할 것과 지킬 것을 먼저 정합니다', body: '업무에 쓰는 도구는 회사가 승인한 범위 안에서 익명화를 거쳐 사용합니다. 공개 자료에는 실제 과제 정보와 사내 문서를 넣지 않고, 시연과 검증은 가상 데이터로 합니다.' },
 ];
 
 export const entryPath = (entry: PortfolioEntry) => `/${entry.kind}/${entry.slug}`;
