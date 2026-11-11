@@ -8,7 +8,7 @@
 - No invented employment, achievements, project screenshots or private company material.
 - Keep the current story and old work hash links accessible.
 - White editorial layout, restrained lavender, no proficiency scores.
-- No unapproved generated portrait; use a clearly typographic profile until the bob avatar is selected.
+- Use only the avatar the owner selected (small circular WebP).
 
 ## Tasks
 - [x] Add `src/content/portfolio.ts` using existing work data; create `PortfolioPages.tsx` for work/project indexes, details and not found states.

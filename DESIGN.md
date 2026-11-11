@@ -1,63 +1,39 @@
 # EUNJI Portfolio Design System
 
-현재 `main`의 시각 언어를 기준으로 한다. Draft PR의 실험 디자인은 병합 전까지 authority가 아니다.
+`feat/resume-portfolio`(2026-11-11)부터 적용하는 개발자 이력서형 시각 언어다. main에 병합되기 전까지는 main의 실제 코드가 production 기준이다.
 
 ## 방향
 
-개인 포트폴리오이지만 이력서처럼 딱딱하지 않고, **차분한 editorial + 가벼운 playful detail**을 유지한다.
+"도구를 만드는 Clinical DM". 실제 개발자들이 제출하는 이력서 포트폴리오처럼 **깔끔하고 단정한 전문가 톤**을 쓴다.
 
-핵심 키워드:
-- warm
-- clear
-- editorial
-- personal
-- quiet playful
-- professional, not corporate
+- 흰 바탕, 진한 남색 글자, 회색 선
+- 포인트 색은 딥 네이비 하나
+- 날짜·라벨·기술 태그는 고정폭 글꼴
+- 장식, 그라데이션, 큰 그림자, 과한 motion 없음
 
-## 현재 토큰
+## 토큰
 
-`src/styles/tokens.css`가 색상/간격/반경의 실제 구현 기준이다.
+`src/styles/tokens.css`가 기준이다. 색은 `--accent`(#1d3557) 하나만 포인트로 쓰고, 나머지는 `--text`, `--text-2`, `--text-3`, `--line`, `--surface`로 표현한다. 새 색을 하드코딩하지 않는다.
 
-주요 톤:
-- off-white background
-- charcoal text
-- lavender / pink 중심 포인트
-- yellow / mint 보조 포인트
-- soft shadow
-- pill과 둥근 카드
+글꼴: Pretendard Variable(본문), JetBrains Mono(날짜·라벨·태그). 화면의 글자는 12px보다 작게 하지 않는다.
 
 ## 레이아웃
 
-- desktop에서 넓은 여백과 명확한 section rhythm
-- mobile 최소 폭 320px 유지
-- hero는 강한 한 문장 + 짧은 설명 + 행동으로 구성
-- WORK는 결과물과 문제 해결 과정을 먼저 읽히게 한다
-- STORY는 경력 나열보다 변화의 맥락을 설명한다
+- 데스크톱(>960px): 왼쪽 320px 사이드바(아바타, 이름, 직함, 한 줄 소개, 섹션 목차, GitHub)가 고정되고 오른쪽 760px 본문이 스크롤된다. 홈에서는 스크롤 위치에 따라 목차가 강조된다.
+- 960px 이하: 사이드바가 위로 올라가고 목차는 줄바꿈되는 가로 목록이 된다. 640px 이하에서는 사이드바 한 줄 소개를 숨긴다.
+- 최소 폭 320px, 가로 스크롤 없음.
+- 홈 섹션 순서: About → Experience(최신순) → Skills → Work → Projects(도구 / 제품 / 그 밖에) → How I work → Contact.
 
 ## 컴포넌트
 
-같은 역할은 기존 컴포넌트를 우선 사용한다.
-
-- SiteHeader / SiteFooter
-- SectionLabel
-- Pill
-- WorkCard
-- StoryCard
-- Timeline
-
-새 컴포넌트를 만들기 전에 기존 컴포넌트 확장 가능성을 확인한다.
+- `Sidebar`, `SiteFooter` (`src/components/Sidebar.tsx`)
+- `EntryList`, `ProjectGroups`, `AlsoList`, `Chips` (`src/components/EntryList.tsx`)
+- 목록형 행은 `.row-list`(날짜 열 + 내용 열)를 재사용한다.
 
 ## Motion
 
-현재 motion은 짧은 hover/transition 정도의 절제된 수준이다.
-새 motion을 추가할 때도 콘텐츠보다 앞서지 않게 한다.
+hover 색·테두리 변화와 화살표 3px 이동 정도만 쓴다(150–200ms). `prefers-reduced-motion`이면 전환과 부드러운 스크롤을 끈다.
 
-- 150–250ms 범위의 짧은 feedback
-- transform/opacity 우선
-- 큰 parallax, 지속 animation, 과한 glow는 피한다
-- reduced motion을 존중한다
+## 아바타
 
-## 외부 레퍼런스
-
-필요하면 Refero / 21st.dev / Component Gallery / Kinetics / Impeccable을 참고할 수 있다.
-외부 스타일을 그대로 복제하지 않고 현재 토큰과 typography에 맞게 재해석한다.
+사용자가 고른 노트북 작업 캐릭터를 64px 원형으로만 쓴다(`public/images/eunji-avatar-720.webp`). 원본 PNG는 레포에 넣지 않는다.

@@ -34,11 +34,11 @@ export const portfolio: PortfolioEntry[] = [
   {
     slug: 'dm-skills', kind: 'projects', group: 'tools', number: '01',
     title: 'DM Skills', label: 'DM WORK / AI SKILLS',
-    summary: 'DM 업무에서 자주 하는 판단과 글쓰기를 AI가 같은 기준으로 돕도록 14개의 업무 스킬로 정리했습니다.',
+    summary: 'DM 업무에서 자주 하는 판단과 글쓰기를 AI가 일정한 기준으로 돕도록 업무 스킬로 정리했습니다.',
     tags: ['Clinical DM', 'CDASH · SDTM', 'AI Skills'],
     sections: [
-      { title: '무엇을 담았나', body: 'CRF 변수 코드 추천(CDASH·SDTM 우선), DM 문서 검토, Query Message 작성, CDMS 변경 절차 점검, UAT 스크립트와 결과 정리, 주간 보고처럼 실제로 자주 하는 일을 스킬 단위로 나눴습니다.' },
-      { title: '기준을 먼저 적어 두기', body: '업무 절차와 확인 기준을 스킬 문서에 먼저 적어 두고, AI는 그 기준을 따라 초안을 만들게 했습니다. 최종 확인과 판단은 사람이 합니다.' },
+      { title: '무엇을 담았나', body: 'CRF 변수 코드 추천(CDASH·SDTM 우선), DM 문서 검토, Query Message 작성, EDC 변경 절차 점검, UAT 스크립트와 결과 정리, 주간 보고처럼 실제로 자주 하는 일을 스킬 단위로 나눴습니다.' },
+      { title: '공개 표준을 기준으로', body: 'CDISC 같은 공개 표준과 일반적인 DM 절차를 기준으로 삼았습니다. AI는 초안을 만들고, 최종 확인과 판단은 사람이 합니다.' },
     ],
     note: '실제 과제 정보와 사내 문서는 이 페이지에 공개하지 않습니다.',
   },
@@ -49,7 +49,7 @@ export const portfolio: PortfolioEntry[] = [
     tags: ['Tauri', 'Rust', 'Anonymization'],
     sections: [
       { title: '규칙으로 찾을 수 있는 건 먼저 찾기', body: 'DVS와 DB Spec 사이의 차이처럼 규칙으로 확인할 수 있는 것은 도구가 먼저 찾아 표로 보여줍니다. 문서 수정은 사람이 직접 합니다.' },
-      { title: '보내기 전에 가리기', body: '문서를 AI에 보내야 할 때는 과제명, 약물명, 사람 이름 같은 값을 먼저 가리고, 답을 받은 뒤 원래 값으로 되돌립니다. 이 익명화 부분은 Rust로 만들었습니다.' },
+      { title: '가리고 되돌리는 익명화', body: '과제명, 약물명, 사람 이름 같은 값을 자동으로 가렸다가 결과를 받은 뒤 원래 값으로 되돌리는 익명화 기능을 Rust로 만들었습니다. 기능 검증은 가상 문서로 합니다.' },
       { title: '지금은 Nia Work 안으로', body: 'DM Tool의 화면과 기능은 Nia Work의 “DM 도구”로 옮겨, 앞으로는 한곳에서 관리합니다.' },
     ],
     note: '도구가 다루는 실제 문서와 데이터는 공개하지 않습니다.',
@@ -63,7 +63,7 @@ export const portfolio: PortfolioEntry[] = [
       { title: '공부하면서 만든 지도', body: '외부 레포는 복사하지 않고 용도, 라이선스, 확인한 커밋만 목록으로 관리하다가 필요할 때 내려받습니다.' },
       { title: '출처를 남기는 습관', body: '보관하는 파일마다 원본 주소, 체크섬, 받은 날짜를 함께 기록합니다.' },
     ],
-    note: '재배포 조건을 확인하지 못한 자료가 있어 레포는 비공개로 유지합니다.',
+    note: '개인 학습용 색인이라 레포는 비공개로 둡니다.',
   },
   {
     slug: 'aka', kind: 'projects', group: 'products', number: '01',
@@ -83,9 +83,9 @@ export const portfolio: PortfolioEntry[] = [
     summary: '매일 영어 패턴 두 개와 구동사·표현 하나를 익히는 언어 학습 앱입니다. 유료 AI API 없이 기기 안의 AI만 씁니다.',
     tags: ['React Native · Expo', 'On-device AI', 'Language Learning'],
     sections: [
-      { title: '단계별 패턴 사다리', body: '일상에서 쓰는 영어 패턴을 중급에서 고급까지 단계별로 쌓도록 패턴 노트를 구성했고, 일본어 문법 노트와 내 카드도 함께 둡니다.' },
+      { title: '단계별 패턴 노트', body: '일상에서 쓰는 영어 패턴을 단계별로 쌓을 수 있게 패턴 노트를 만들고 있고, 일본어 문법 노트와 내 카드도 함께 둡니다.' },
       { title: '주제가 있는 연습', body: '홈에서 주간 테마에 맞춘 오늘의 추천 연습을 보여줍니다.' },
-      { title: '무료로, 기기 안에서', body: '서버나 유료 AI API 없이 기기 안의 모델로만 동작하도록 만들었습니다.' },
+      { title: '무료로, 기기 안에서', body: '유료 AI API를 쓰지 않고, 학습용 AI는 기기 안에서 돌아가도록 만들고 있습니다.' },
     ],
     note: '현재 제작 중인 개인 프로젝트입니다. 공개 가능한 화면과 상세 제작 기록을 준비하고 있습니다.',
   },
@@ -96,8 +96,8 @@ export const portfolio: PortfolioEntry[] = [
     tags: ['Tauri', 'Rust', 'TypeScript', 'Multi-agent'],
     sections: [
       { title: '역할이 있는 AI 팀', body: '일정·메일, 시스템 설정, Data Validation, 문서 담당 AI가 한 방에서 일하고, 요청 내용에 맞는 담당이 먼저 답합니다.' },
-      { title: '가리고, 보내고, 되돌리기', body: '모든 AI 요청은 과제명이나 이름 같은 값을 가린 뒤 보내고, 답을 받은 뒤 원래 값으로 복원합니다.' },
-      { title: '승인과 독립 QC', body: 'GitHub 이슈에서 시작하는 개발 작업도 사용자 승인, 작업, 빌드와 테스트, 독립 QC 순서를 거칩니다. 승인 없이 자동으로 쓰거나 다시 시도하지 않습니다.' },
+      { title: '가리고, 보내고, 되돌리기', body: 'AI에 요청하기 전에 이름 같은 민감할 수 있는 값을 가리고, 답을 받은 뒤 원래 값으로 복원하도록 설계했습니다.' },
+      { title: '승인과 독립 QC', body: 'GitHub 이슈에서 시작하는 개발 작업이 사용자 승인, 작업, 빌드와 테스트, 독립 QC 순서로 진행되도록 설계했습니다.' },
     ],
     note: '현재 제작 중인 개인 프로젝트입니다. 회사 업무 데이터는 공개 자료에 포함하지 않습니다.',
   },
@@ -113,8 +113,8 @@ export const alsoBuilding = [
 
 export const workPrinciples = [
   { title: '확인한 것만 완료라고 씁니다', body: '테스트, 실제 화면 확인, 아직 확인하지 못한 항목을 나눠 기록합니다. 실행해 보지 않은 것은 “미검증”으로 남깁니다.' },
-  { title: '만든 쪽과 검토하는 쪽을 나눕니다', body: '개발이 끝나면 별도의 AI 리뷰어가 독립적으로 QC하고, 지적된 내용을 고친 뒤에 마무리합니다.' },
-  { title: '공개할 것과 지킬 것을 먼저 정합니다', body: '실제 과제 정보와 사내 문서는 밖으로 내보내지 않고, AI에 보낼 때는 먼저 가립니다.' },
+  { title: '만든 쪽과 검토하는 쪽을 나눕니다', body: '개발 작업은 별도의 리뷰어가 독립적으로 QC하고, 지적된 내용을 고친 뒤에 마무리합니다.' },
+  { title: '공개할 것과 지킬 것을 먼저 정합니다', body: '공개 자료에는 실제 과제 정보와 사내 문서를 넣지 않고, 도구의 시연과 검증은 가상 데이터로 합니다.' },
 ];
 
 export const entryPath = (entry: PortfolioEntry) => `/${entry.kind}/${entry.slug}`;

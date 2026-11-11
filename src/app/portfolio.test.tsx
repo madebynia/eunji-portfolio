@@ -21,9 +21,9 @@ describe('portfolio routes', () => {
     fireEvent.click(screen.getByRole('link', { name: /AKA/ }));
     expect(screen.getByRole('heading', { level: 1, name: 'AKA' })).toBeInTheDocument();
     expect(screen.getByText(/현재 제작 중인 개인 프로젝트/)).toBeInTheDocument();
-    await waitFor(() => expect(document.title).toBe('AKA | EUNJI'));
+    await waitFor(() => expect(document.title).toBe('AKA | Eunji Lee'));
     fireEvent.click(screen.getByRole('button', { name: '브라우저 뒤로' }));
-    expect(screen.getByRole('heading', { name: 'Side projects.' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 1, name: '만들고 있는 것' })).toBeInTheDocument();
   });
 
   it('links each project to the next one in the same group', () => {
@@ -33,6 +33,14 @@ describe('portfolio routes', () => {
     cleanup();
     renderRoute('/projects/ddf-knowledge');
     expect(screen.getByRole('link', { name: /다음 프로젝트/ })).toHaveAttribute('href', '/projects/dm-skills');
+  });
+
+  it('groups the projects index into tools, products and other builds', () => {
+    renderRoute('/projects');
+    const groups = screen.getAllByRole('heading', { level: 2 }).map(h => h.textContent);
+    expect(groups).toEqual(expect.arrayContaining(['업무에서 시작한 도구', '불편에서 시작한 제품', '그 밖에 만들고 있는 것']));
+    expect(screen.getAllByRole('heading', { level: 3 }).length).toBe(6);
+    expect(screen.getByText('Momo Files').closest('ul')?.children.length).toBe(5);
   });
 
   it('opens a work detail directly, including confidentiality guidance', () => {
@@ -45,7 +53,7 @@ describe('portfolio routes', () => {
   it.each([
     ['/work#clinical-data', 'Clinical Data & Standardization'],
     ['/work#automation', 'Excel Workflow Automation'],
-    ['/work#products', 'Side projects.'],
+    ['/work#products', '만들고 있는 것'],
   ])('keeps the old %s link useful', async (path, title) => {
     renderRoute(path);
     expect(await screen.findByRole('heading', { level: 1, name: title })).toBeInTheDocument();
@@ -55,6 +63,6 @@ describe('portfolio routes', () => {
     renderRoute(path);
     expect(screen.getByRole('heading', { name: '페이지를 찾을 수 없어요.' })).toBeInTheDocument();
     fireEvent.click(screen.getByRole('link', { name: '홈으로 돌아가기 →' }));
-    expect(screen.getByRole('heading', { name: 'I’m EUNJI.' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 1, name: /임상 데이터의 기준을 세우고/ })).toBeInTheDocument();
   });
 });

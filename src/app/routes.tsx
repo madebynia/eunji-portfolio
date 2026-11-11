@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
-import { SiteHeader } from '../components/SiteHeader';
+import { Sidebar, SiteFooter } from '../components/Sidebar';
 import { HomePage } from '../pages/HomePage';
 import { StoryPage } from '../pages/StoryPage';
 import { WorkPage } from '../pages/WorkPage';
@@ -16,8 +16,9 @@ function WorkRoute() {
 
 export function AppRoutes() {
   return (
-    <>
-      <SiteHeader />
+    <div className="layout">
+      <Sidebar />
+      <div className="content">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/work" element={<WorkRoute />} />
@@ -27,7 +28,9 @@ export function AppRoutes() {
         <Route path="/story" element={<StoryPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      <SiteFooter />
+      </div>
       <RouteEffects />
-    </>
+    </div>
   );
 }
