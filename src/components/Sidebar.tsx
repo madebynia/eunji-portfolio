@@ -74,7 +74,7 @@ export function Sidebar() {
           </ul>
         </nav>
         <ul className="sidebar-links">
-          <li><a href={profile.github} target="_blank" rel="noreferrer">GitHub ↗<span className="sr-only"> (새 탭)</span></a></li>
+          <li><a href={`mailto:${profile.email}`}>Email</a></li>
         </ul>
       </div>
     </header>

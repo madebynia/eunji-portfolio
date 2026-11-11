@@ -1,8 +1,64 @@
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Chips, EntryList, ProjectGroups } from '../components/EntryList';
 import { portfolio, workPrinciples } from '../content/portfolio';
 import { profile } from '../content/profile';
 import { experience, skillGroups } from '../content/work';
+
+type CopyState = 'idle' | 'copied' | 'failed';
+
+function copyWithSelection(text: string) {
+  const active = document.activeElement as HTMLElement | null;
+  const area = document.createElement('textarea');
+  area.value = text;
+  area.setAttribute('readonly', '');
+  area.style.position = 'fixed';
+  area.style.top = '0';
+  area.style.left = '-9999px';
+  document.body.appendChild(area);
+  try {
+    area.select();
+    return document.execCommand('copy');
+  } catch {
+    return false;
+  } finally {
+    area.remove();
+    active?.focus({ preventScroll: true });
+  }
+}
+
+function ContactEmail() {
+  const [state, setState] = useState<CopyState>('idle');
+  const timer = useRef<number | undefined>(undefined);
+  useEffect(() => () => window.clearTimeout(timer.current), []);
+
+  const copy = async () => {
+    let ok = false;
+    try {
+      await navigator.clipboard.writeText(profile.email);
+      ok = true;
+    } catch {
+      // Some browsers block the async clipboard; fall back to a selected text copy.
+      ok = copyWithSelection(profile.email);
+    }
+    setState(ok ? 'copied' : 'failed');
+    window.clearTimeout(timer.current);
+    if (ok) timer.current = window.setTimeout(() => setState('idle'), 2000);
+  };
+
+  return (
+    <div className="contact-email">
+      <p className="contact-address">{profile.email}</p>
+      <div className="actions">
+        <a className="button button-primary" href={`mailto:${profile.email}`}>이메일 보내기</a>
+        <button className="button" type="button" onClick={copy}>주소 복사</button>
+        <span className="copy-status" role="status">
+          {state === 'copied' ? '복사했어요' : state === 'failed' ? '복사하지 못했어요. 주소를 직접 선택해 주세요.' : ''}
+        </span>
+      </div>
+    </div>
+  );
+}
 
 export function HomePage() {
   return (
@@ -74,10 +130,8 @@ export function HomePage() {
       <section id="contact" className="section" aria-labelledby="contact-heading">
         <p className="eyebrow">Contact</p>
         <h2 id="contact-heading">연락</h2>
-        <p className="contact-text">만든 도구와 과정이 궁금하시면 GitHub에서 확인하실 수 있습니다.</p>
-        <div className="actions">
-          <a className="button" href={profile.github} target="_blank" rel="noreferrer">GitHub ↗<span className="sr-only"> (새 탭)</span></a>
-        </div>
+        <p className="contact-text">협업이나 채용 관련 문의는 이메일로 연락해 주세요.</p>
+        <ContactEmail />
       </section>
     </main>
   );

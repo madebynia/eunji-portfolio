@@ -19,5 +19,7 @@ describe('portfolio navigation', () => {
       expect(navigation.getByRole('link', { name })).toHaveAttribute('href', href);
     }
     expect(screen.getByRole('link', { name: /EUNJI/ })).toHaveAttribute('href', '/');
+    expect(screen.getByRole('link', { name: 'Email' })).toHaveAttribute('href', 'mailto:eunji921020@gmail.com');
+    expect(screen.queryByRole('link', { name: /GitHub/ })).toBeNull();
   });
 });
