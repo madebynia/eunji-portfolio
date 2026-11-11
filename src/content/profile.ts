@@ -8,7 +8,7 @@ export const profile = {
     '지금은 임상시험 DM 업무 전반을 맡아 쿼리 발행까지 직접 하고 있고, 업무 밖에서는 반복되는 확인 작업을 줄이는 도구와 앱을 개인 프로젝트로 만들고 있습니다.',
   ],
   stats: [
-    { value: '약 30건', label: '임상시험 Logic QC 담당' },
+    { value: '약 30건', label: '항암제 임상시험 Logic QC 담당' },
     { value: '3시간 → 1시간', label: '주간 반복 작업 (Excel 자동화)' },
     { value: 'EDC 3종', label: 'myTrial · CRScube · Maven' },
   ],

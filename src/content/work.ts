@@ -9,7 +9,7 @@ export const experience = [
     period: '2019 — 2025',
     title: 'Oncology Clinical Research & Data',
     place: '국립암센터 · 임상시험센터',
-    body: '임상시험 약 30건의 데이터 검증 Logic QC를 담당했고, 업무 표준화와 SOP·DVS Manual·DVS Logic 개발을 맡았습니다. 연구 행정·계약 업무와 채용 업무도 함께 담당했습니다.',
+    body: '연구자 주도 임상(IIT)을 중심으로 항암제 임상시험 약 30건의 데이터 검증 Logic QC를 담당했고, 업무 표준화와 SOP·DVS Manual·DVS Logic 개발을 맡았습니다. 연구 행정·계약 업무와 채용 업무도 함께 담당했습니다.',
   },
   {
     period: '2026 — NOW',
@@ -34,7 +34,7 @@ export const standardizationItems = [
   },
   {
     title: 'DVS Logic Design',
-    body: '데이터 검증 기준을 실제 검증에 사용할 수 있는 Logic으로 구체화했고, 임상시험 약 30건의 Logic QC를 담당했습니다.',
+    body: '데이터 검증 기준을 실제 검증에 사용할 수 있는 Logic으로 구체화했고, 항암제 임상시험 약 30건(대부분 연구자 주도 임상)의 Logic QC를 담당했습니다.',
   },
 ];
 
