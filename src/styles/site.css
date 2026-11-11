@@ -73,7 +73,7 @@ h2 { margin-bottom: 28px; font-size: 24px; line-height: 1.4; letter-spacing: -.0
 /* Entries */
 .entry-list { display: grid; gap: 12px; }
 .entry { display: block; padding: 20px 22px; border: 1px solid var(--line); border-radius: var(--radius); transition: border-color .15s ease, background-color .15s ease; }
-.entry:hover { border-color: var(--accent-line); background: #fafbfd; }
+.entry:hover { border-color: var(--accent-line); background: var(--accent-wash); }
 .entry-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
 .entry-title { margin: 0; font-size: 17px; font-weight: 700; line-height: 1.45; letter-spacing: -.01em; }
 .entry-arrow { color: var(--text-3); transition: transform .15s ease, color .15s ease; }

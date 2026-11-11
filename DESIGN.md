@@ -7,13 +7,13 @@
 "도구를 만드는 Clinical DM". 실제 개발자들이 제출하는 이력서 포트폴리오처럼 **깔끔하고 단정한 전문가 톤**을 쓴다.
 
 - 흰 바탕, 진한 남색 글자, 회색 선
-- 포인트 색은 딥 네이비 하나
+- 시그니처 색은 연보라 하나 (배경·태그는 옅은 연보라, 글자·버튼은 읽히도록 한 단계 진한 연보라)
 - 날짜·라벨·기술 태그는 고정폭 글꼴
 - 장식, 그라데이션, 큰 그림자, 과한 motion 없음
 
 ## 토큰
 
-`src/styles/tokens.css`가 기준이다. 색은 `--accent`(#1d3557) 하나만 포인트로 쓰고, 나머지는 `--text`, `--text-2`, `--text-3`, `--line`, `--surface`로 표현한다. 새 색을 하드코딩하지 않는다.
+`src/styles/tokens.css`가 기준이다. 색은 연보라 계열 `--accent`(#6a55a6, 흰 바탕 대비 약 5.6:1), `--accent-soft`(#f3f0fb), `--accent-line`(#d9d0f0), `--accent-wash`(#fbfaff)만 포인트로 쓰고, 나머지는 `--text`, `--text-2`, `--text-3`, `--line`, `--surface`로 표현한다. 새 색을 하드코딩하지 않는다.
 
 글꼴: Pretendard Variable(본문), JetBrains Mono(날짜·라벨·태그). 화면의 글자는 12px보다 작게 하지 않는다.
 

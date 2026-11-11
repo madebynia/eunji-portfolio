@@ -6,10 +6,11 @@
   --text: #0f172a;
   --text-2: #475467;
   --text-3: #667085;
-  --accent: #1d3557;
-  --accent-hover: #14253f;
-  --accent-soft: #eef2f7;
-  --accent-line: #c9d3e1;
+  --accent: #6a55a6;
+  --accent-hover: #56438c;
+  --accent-soft: #f3f0fb;
+  --accent-line: #d9d0f0;
+  --accent-wash: #fbfaff;
   --on-accent: #ffffff;
   --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;

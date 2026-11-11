@@ -15,7 +15,7 @@ React · Vite · TypeScript · React Router 기반 개인 브랜딩 사이트. H
 ## 현재 상태
 - main은 HOME · WORK · STORY 기본 구조와 테스트/빌드 환경, Cloudflare Pages용 SPA fallback을 가진 현재 production baseline이다.
 - main 최신 CI(2026-10-02)는 성공 상태다.
-- 2026-11-11: `feat/resume-portfolio`에서 개발자 이력서형(사이드바, 딥 네이비)으로 전면 개편. 업무 도구(DM Skills, DM Tool, DDF Knowledge)와 제품(AKA, 무카랭, Nia Work) 상세 페이지 추가. 테스트 15개·빌드·5개 화면 폭 브라우저 확인 통과, 배포 전.
+- 2026-11-11: `feat/resume-portfolio`에서 개발자 이력서형(사이드바, 연보라 시그니처)으로 전면 개편. 업무 도구(DM Skills, DM Tool, DDF Knowledge)와 제품(AKA, 무카랭, Nia Work) 상세 페이지 추가. 테스트 15개·빌드·5개 화면 폭 브라우저 확인 통과, 배포 전.
 - 이전 v2 Home 재설계는 `feat/portfolio-v2` / PR #1에 Draft로 남아 있으며, 이력서형으로 방향을 정해 정리 대상이다.
 - PR #1은 현재 main과 diverged 상태이며 7커밋 앞, 6커밋 뒤다(2026-11-03 기준). 병합 전 main 최신 변경 반영과 재검토가 필요하다.
 - 오래된 PROJECT_STATUS 전용 PR #2는 2026-09-29 정리 과정에서 닫았다.
