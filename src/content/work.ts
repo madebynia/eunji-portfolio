@@ -14,7 +14,7 @@ export const experience = [
   {
     period: '2026 — NOW',
     title: 'Clinical Data & Systems',
-    place: '임상시험 Data Management · Data Management Associate',
+    place: '제이앤피메디 · Data Management Associate',
     body: '임상시험 DM 업무 전반을 맡아 쿼리 발행까지 직접 수행하고 있습니다. 최근에는 의료기기 연구자 주도 임상(IIT)의 셋업과 Validation을 담당했고, 글로벌 제약사 시판 후 조사(PMS)의 셋업을 앞두고 있습니다.',
   },
 ];
