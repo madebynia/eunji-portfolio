@@ -153,10 +153,15 @@ button.button { background: var(--bg); font-family: inherit; cursor: pointer; }
 .resume-tags { margin-left: 6px; font-size: 12px; font-weight: 600; color: var(--text-3); }
 .resume-bullets { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 6px; font-size: 13px; color: var(--text-3); }
 .resume-bullets li::before { content: "· "; }
+.resume-creds li { display: grid; grid-template-columns: 150px minmax(0, 1fr) auto; gap: 4px 24px; align-items: baseline; padding: 10px 0; border-top: 1px solid var(--line); }
+.resume-creds li:first-child { border-top: 0; padding-top: 0; }
+.resume-creds h3 { font-size: 15px; font-weight: 700; }
+.resume-cred-meta { font-size: 13px; color: var(--text-3); }
 .resume-more { margin-top: 16px; font-size: 13px; color: var(--text-3); }
 .resume-more a { color: var(--accent); font-weight: 600; }
 @media (max-width: 640px) {
   .resume-layout { padding: 20px 16px 40px; }
+  .resume-creds li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
   .resume-head h1 { font-size: 30px; }
 }
 .resume-print-url { display: none; }
@@ -169,7 +174,7 @@ button.button { background: var(--bg); font-family: inherit; cursor: pointer; }
   .resume-layout .resume-summary, .resume-layout .resume-items p, .resume-layout .row-body { font-size: 12px; }
   .resume-layout .resume-block { margin-top: 18px; }
   .resume-layout .resume-block > h2 { font-size: 15px; margin-bottom: 8px; }
-  .resume-layout .resume-items li { break-inside: avoid; }
+  .resume-layout .resume-items li, .resume-layout .row-list > li, .resume-layout .row-list > div, .resume-creds li { break-inside: avoid; }
   .resume-layout .stats div { padding: 8px 12px; }
   .resume-layout .stats dd { font-size: 18px; }
   .resume-layout .chip { padding: 2px 6px; font-size: 10px; }

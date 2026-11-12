@@ -73,6 +73,9 @@ describe('portfolio routes', () => {
     expect(screen.queryByRole('link', { name: 'AKA' })).toBeNull();
     expect(screen.getByRole('link', { name: 'eunji921020@gmail.com' })).toHaveAttribute('href', 'mailto:eunji921020@gmail.com');
     expect(screen.getByRole('button', { name: 'PDF로 저장' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: '수원대학교 간호학과' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: '간호사 면허' })).toBeInTheDocument();
+    expect(screen.queryByText(/010-|1992|naver/)).toBeNull();
     const projects = screen.getByRole('heading', { name: '업무 도구와 대표 프로젝트' }).closest('section')!;
     expect(within(projects).getAllByRole('heading', { level: 3 }).map(h => h.querySelector('a')?.textContent))
       .toEqual(['DM Skills', 'DM Tool', 'DDF Knowledge', 'Nia Work']);

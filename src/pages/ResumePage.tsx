@@ -87,6 +87,19 @@ export function ResumePage() {
           </ul>
           <p className="resume-more">그 밖의 개인 프로젝트와 제작 과정은 <Link to="/#projects">EUNJI 홈</Link>에 있습니다.</p>
         </section>
+
+        <section className="resume-block" aria-labelledby="resume-education">
+          <h2 id="resume-education">학력 · 자격</h2>
+          <ul className="resume-creds">
+            {[...profile.education, ...profile.credentials].map(item => (
+              <li key={item.title}>
+                <span className="period">{item.period}</span>
+                <h3>{item.title}</h3>
+                <span className="resume-cred-meta">{item.meta}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
       </main>
     </div>
   );

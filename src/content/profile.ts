@@ -12,6 +12,14 @@ export const profile = {
     { value: '3시간 → 1시간', label: '주간 반복 작업 (Excel 자동화)' },
     { value: 'EDC 3종', label: 'myTrial · CRScube · Maven' },
   ],
+  education: [
+    { period: '2011 — 2015', title: '수원대학교 간호학과', meta: '졸업' },
+  ],
+  credentials: [
+    { period: '2015', title: '간호사 면허', meta: '보건복지부' },
+    { period: '2018', title: 'TOEIC 830', meta: '영어' },
+    { period: '2023', title: 'aDSP 데이터분석 준전문가', meta: '한국데이터산업진흥원' },
+  ],
   facts: [
     { label: '분야', value: 'Oncology · Clinical Data' },
     { label: '현재', value: '임상시험 DM 업무 전반' },

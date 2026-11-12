@@ -1,15 +1,15 @@
 export const experience = [
   {
-    period: '2016 — 2018',
+    period: '2016 — 2017',
     title: 'Oncology Care',
     place: '원자력병원 · 암 외과병동',
-    body: '암 환자의 수술, 항암치료, 방사선치료 과정 가까이에서 간호 업무를 경험했습니다.',
+    body: '항암제 투여 환자와 중증 환자 간호, 수술 전후 간호를 맡았습니다. 이때 익힌 항암제 스케줄·독성·부작용 패턴에 대한 감각이 지금의 데이터 클리닝과 쿼리 판단의 바탕이 됐습니다.',
   },
   {
     period: '2019 — 2025',
     title: 'Oncology Clinical Research & Data',
     place: '국립암센터 · 임상시험센터',
-    body: '연구자 주도 임상(IIT)을 중심으로 Oncology 분야 임상연구 약 30건(항암제·의료기기·아스피린 연구 등)의 데이터 검증 Logic QC를 담당했고, 업무 표준화와 SOP·DVS Manual·DVS Logic 개발을 맡았습니다. 연구 행정·계약 업무와 채용 업무도 함께 담당했습니다.',
+    body: '연구자 주도 임상(IIT)을 중심으로 프로토콜 리뷰, eCRF 설계·DB 구축, 데이터 클리닝, DB Lock까지 DM 전 과정을 수행했습니다. Oncology 분야 임상연구 약 30건(항암제·의료기기·아스피린 연구 등)의 데이터 검증 Logic QC를 담당했고, SOP·DVS Manual·DVS Logic 개발로 업무를 표준화했습니다. 스폰서·CRA·PI·CRC와 협업하며 연구 행정·계약과 채용 업무도 함께 맡았습니다.',
   },
   {
     period: '2026 — NOW',
@@ -51,7 +51,7 @@ export const automation = {
 export const skillGroups = [
   {
     title: 'Clinical',
-    items: ['Oncology', 'Clinical Data Management', 'Data Validation', 'DVS Logic QC', 'Query Management', 'Study Setup · Validation', 'PMS', 'IIT', 'CDISC 표준 (학습 중)'],
+    items: ['Oncology', 'Protocol Review', 'eCRF 설계 · DB 구축', 'Data Cleaning · DB Lock', 'DVS Logic QC', 'Query Management', 'Study Setup · Validation', 'PMS', 'IIT', 'CDISC 표준 (학습 중)'],
   },
   {
     title: 'EDC',
