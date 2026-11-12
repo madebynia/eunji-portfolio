@@ -4,11 +4,9 @@ import { profile } from '../content/profile';
 
 export const homeSections = [
   { id: 'about', label: 'About' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'work', label: 'Work' },
   { id: 'projects', label: 'Projects' },
   { id: 'principles', label: 'How I work' },
+  { id: 'career', label: 'Career' },
   { id: 'contact', label: 'Contact' },
 ];
 
@@ -44,7 +42,7 @@ export function Sidebar() {
   const scrolled = useActiveSection(isHome);
   const active = isHome ? scrolled
     : pathname.startsWith('/projects') ? 'projects'
-    : pathname.startsWith('/work') ? 'work'
+    : pathname.startsWith('/work') ? 'career'
     : pathname.startsWith('/story') ? 'story' : '';
 
   // On small screens the nav is a sideways-scrolling row: keep the current item in view.
@@ -94,6 +92,7 @@ export function Sidebar() {
           </ul>
         </nav>
         <ul className="sidebar-links">
+          <li><Link to="/resume">이력서</Link></li>
           <li><a href={`mailto:${profile.email}`}>Email</a></li>
         </ul>
       </div>

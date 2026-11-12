@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Chips, EntryList, ProjectGroups } from '../components/EntryList';
-import { portfolio, workPrinciples } from '../content/portfolio';
+import { ProjectGroups } from '../components/EntryList';
+import { workPrinciples } from '../content/portfolio';
 import { profile } from '../content/profile';
-import { experience, skillGroups } from '../content/work';
+import { experience } from '../content/work';
 
 type CopyState = 'idle' | 'copied' | 'failed';
 
@@ -67,47 +67,14 @@ export function HomePage() {
         <p className="eyebrow">About</p>
         <h1 id="about-heading">{profile.headline[0]}<br />{profile.headline[1]}</h1>
         <div className="prose">{profile.intro.map(text => <p key={text}>{text}</p>)}</div>
-        <dl className="stats">
-          {profile.stats.map(stat => <div key={stat.label}><dt>{stat.label}</dt><dd>{stat.value}</dd></div>)}
-        </dl>
         <dl className="facts">
           {profile.facts.map(fact => <div key={fact.label}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}
         </dl>
         <div className="actions">
           <Link className="button button-primary" to="/#projects">프로젝트 보기</Link>
+          <Link className="button" to="/resume">이력서 보기</Link>
           <Link className="button" to="/story">커리어 이야기</Link>
         </div>
-      </section>
-
-      <section id="experience" className="section" aria-labelledby="experience-heading">
-        <p className="eyebrow">Experience</p>
-        <h2 id="experience-heading">경력</h2>
-        <ol className="row-list">
-          {[...experience].reverse().map(item => (
-            <li key={item.period}>
-              <p className="period">{item.period}</p>
-              <div>
-                <h3 className="row-title">{item.title}</h3>
-                <p className="row-meta">{item.place}</p>
-                <p className="row-body">{item.body}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      <section id="skills" className="section" aria-labelledby="skills-heading">
-        <p className="eyebrow">Skills</p>
-        <h2 id="skills-heading">역량</h2>
-        <dl className="row-list skill-rows">
-          {skillGroups.map(group => <div key={group.title}><dt>{group.title}</dt><dd><Chips items={group.items} /></dd></div>)}
-        </dl>
-      </section>
-
-      <section id="work" className="section" aria-labelledby="work-heading">
-        <p className="eyebrow">Work</p>
-        <h2 id="work-heading">업무 경험</h2>
-        <EntryList entries={portfolio.filter(entry => entry.kind === 'work')} />
       </section>
 
       <section id="projects" className="section" aria-labelledby="projects-heading">
@@ -128,6 +95,26 @@ export function HomePage() {
             </li>
           ))}
         </ol>
+      </section>
+
+      <section id="career" className="section" aria-labelledby="career-heading">
+        <p className="eyebrow">Career</p>
+        <h2 id="career-heading">경력</h2>
+        <ol className="row-list">
+          {[...experience].reverse().map(item => (
+            <li key={item.period}>
+              <p className="period">{item.period}</p>
+              <div>
+                <h3 className="row-title">{item.title}</h3>
+                <p className="row-meta">{item.place}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+        <div className="actions">
+          <Link className="button button-primary" to="/resume">이력서 보기</Link>
+          <Link className="button" to="/work">업무 경험 자세히</Link>
+        </div>
       </section>
 
       <section id="contact" className="section" aria-labelledby="contact-heading">

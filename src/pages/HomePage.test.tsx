@@ -6,7 +6,7 @@ afterEach(cleanup);
 import { HomePage } from './HomePage';
 
 describe('HomePage', () => {
-  it('presents the resume with separate work and project destinations', () => {
+  it('presents the personal home with projects first and a path to the resume', () => {
     render(
       <MemoryRouter>
         <HomePage />
@@ -17,7 +17,7 @@ describe('HomePage', () => {
       screen.getByRole('heading', { level: 1, name: /임상 데이터의 기준을 세우고/ }),
     ).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: '경력' })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /Clinical Data & Standardization/ })).toHaveAttribute('href', '/work/clinical-data');
+    expect(screen.getAllByRole('link', { name: '이력서 보기' })[0]).toHaveAttribute('href', '/resume');
     expect(screen.getByRole('link', { name: /AKA/ })).toHaveAttribute('href', '/projects/aka');
     expect(screen.getByRole('link', { name: /무카랭/ })).toHaveAttribute('href', '/projects/mukalang');
     expect(screen.getByRole('link', { name: /Nia Work/ })).toHaveAttribute('href', '/projects/nia-work');
@@ -32,8 +32,6 @@ describe('HomePage', () => {
     expect(screen.getByText('Momo Files')).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: '확인한 것만 완료라고 씁니다' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 3, name: '불편에서 시작한 제품' })).toBeInTheDocument();
-    expect(screen.getByText('약 30건')).toBeInTheDocument();
-    expect(screen.getByText('3시간 → 1시간')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: '이메일 보내기' })).toHaveAttribute('href', 'mailto:eunji921020@gmail.com');
     expect(screen.getByRole('button', { name: '주소 복사' })).toBeInTheDocument();
     expect(screen.getAllByRole('heading', { level: 4 }).length).toBe(6);
